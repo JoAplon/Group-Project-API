@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+    <title>Homepage</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome</h1>
+        <h2 id="date"></h2>
+        <h2 id="time"></h2>
+        <!-- add a dropdown to select which cards are visible -->
+    </header>
+    <main id="workspace">
+        <!-- weather app (open weather api)-->
+            <!-- collect user input (city, state, country), then display to page -->
+        <section class="card" id="weather">
+            <h3>Weather</h3>
+        </section>
+        <!-- ron swanson random quote generator -->
+        <section class="card" id="ronQuote">
+            <h3>Ron Swanson Random Quote</h3>
+            <img src="./MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
+        </section>
+        <!-- HP quote -->
+        <section class="card" id="harryPotterQuote">
+            <h3>Harry Potter Random Quote</h3>
+            <img src="./_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp" alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
+        </section>
+        <!-- random fact of the day -->
+        <section class="card" id="randomFact">
+            <h3>Random Facts</h3>
+            <p id="lightbulbEmoji">💡</p>
+        </section>
+    </main>
+    <footer>
+        <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>
