@@ -97,49 +97,62 @@ function setBookmark(website) {
 // news API
 document.addEventListener("DOMContentLoaded", function () {
   const apiKey = "pub_394864a477ec1ed1904cc024ec9c031746837";
-  const query = "pegasus";
-  const language = "en";
-
-  const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${query}&language=${language}`;
-
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      const newsContainer = document.getElementById("news-container");
-
-      // Loop through the first three news items
-      for (let i = 0; i < 3; i++) {
-        const item = data.results[i];
-        if (item && item.title && item.link) {
-          // Create a card element
-          const card = document.createElement("div");
-          card.classList.add("card");
-
-          // Create a title element
-          const titleElement = document.createElement("h3");
-          titleElement.textContent = item.title;
-
-          // Create a link element
-          const linkElement = document.createElement("a");
-          linkElement.textContent = "Read more";
-          linkElement.href = item.link;
-          linkElement.target = "_blank"; // Open link in a new tab
-
-          // Append title and link to the card
-          card.appendChild(titleElement);
-          card.appendChild(linkElement);
-
-          // Append the card to the news container
-          newsContainer.appendChild(card);
+  
+  // Function to fetch news data based on user query
+  function fetchNews(query) {
+    const language = "en";
+    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=${query}&language=${language}`;
+    
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-      }
-    })
-    .catch(error => {
-      console.error("Error fetching data:", error);
-    });
+        return response.json();
+      })
+      .then(data => {
+        const newsContainer = document.getElementById("news-container");
+        newsContainer.innerHTML = ''; // Clear previous results
+        
+        // Loop through the first three news items
+        for (let i = 0; i < 3; i++) {
+          const item = data.results[i];
+          if (item && item.title && item.link) {
+            // Create a card element
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Create a title element
+            const titleElement = document.createElement("h3");
+            titleElement.textContent = item.title;
+
+            // Create a link element
+            const linkElement = document.createElement("a");
+            linkElement.textContent = "Read more";
+            linkElement.href = item.link;
+            linkElement.target = "_blank"; // Open link in a new tab
+
+            // Append title and link to the card
+            card.appendChild(titleElement);
+            card.appendChild(linkElement);
+
+            // Append the card to the news container
+            newsContainer.appendChild(card);
+          }
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  }
+  
+  // Event listener for search button click
+  document.getElementById("search-btn").addEventListener("click", function() {
+    const query = document.getElementById("query-input").value;
+    if (query.trim() !== "") {
+      fetchNews(query);
+    } else {
+      alert("Please enter a query.");
+    }
+  });
 });
