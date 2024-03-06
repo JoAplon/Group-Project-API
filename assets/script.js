@@ -258,3 +258,26 @@ document.addEventListener("DOMContentLoaded", function () {
          })
      }
 getSports(yesterday)
+
+// trivia question API
+function triviaCard() {
+    const apiKey= 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
+    fetch('https://api.api-ninjas.com/v1/riddles', {
+      headers: {
+        'X-Api-Key': apiKey,
+      },
+    })
+    .then(function(response){
+      return response.json();
+    }).then (function(data){
+      console.log(data)
+      console.log(data[0].title)
+      console.log(data[0].question)
+      console.log(data[0].answer)
+      const createElement = document.createElement('p')
+      createElement.textContent = 'Title: ' + data[0].title + 'question' + data[0].question + 'answer' + data[0].answer
+      trivia.append(createElement)
+    })
+  
+  }
+  triviaCard();
