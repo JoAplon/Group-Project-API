@@ -51,42 +51,64 @@
             </div>
           </div>
     <div class="columns container-fluid" id="workspace">
-        <!-- weather app (open weather api)-->
+        <!-- COLUMN 1 -->
+        <div class="column">
+            <div class="card">
+                <section class="card-content" id="weather">
+                    <h3>Weather</h3>
+                </section>
+            </div>
+            <div class="card">
+                <section class="card-content" id="news">
+                    <h3>Daily News</h3>
+                    <!-- Add an input field for user to enter their query -->
+                    <input type="text" id="query-input" placeholder="Enter News of Intereset">
+                    <!-- Add a button to trigger the search -->
+                    <button id="search-btn">Search</button>
+                    <!-- Container to display news -->
+                    <div id="news-container"></div>
+                </section>
+            </div>
+        </div>
+        <!-- COLUMN 2 -->
+        <div class="column">
+            <div class="card">
+                <section class="card-content" id="ronQuote">
+                    <h3>Ron Swanson Random Quote</h3>
+                    <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
+                </section>
+            </div>
+            <div class="card">
+                <section class="card-content" id="harryPotterQuote">
+                    <h3>Harry Potter Random Quote</h3>
+                    <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp" alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
+                </section>
+                
+            </div>
 
-            <!-- collect user input (city, state, country), then display to page -->
-        <section class="card" id="weather">
-            <h3>Weather</h3>
-        </section>
-        <!-- ron swanson random quote generator -->
-        <section class="card" id="ronQuote">
-            <h3>Ron Swanson Random Quote</h3>
-            <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
-        </section>
-        <!-- HP quote -->
-        <section class="card" id="harryPotterQuote">
-            <h3>Harry Potter Random Quote</h3>
-            <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp" alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
-        </section>
-        <!-- random fact of the day -->
-        <section class="card" id="randomFact">
-            <h3>Random Facts</h3>
-            <p id="lightbulbEmoji">💡</p>
-        </section>
-        <!-- news API card -->
-        <section class="card" id="news">
-            <h3>Daily News</h3>
-            <!-- Add an input field for user to enter their query -->
-            <input type="text" id="query-input" placeholder="Enter News of Intereset">
-            <!-- Add a button to trigger the search -->
-            <button id="search-btn">Search</button>
-            <!-- Container to display news -->
-            <div id="news-container"></div>
-        </section>
-        <!-- Sports -->
-        <section class="card">
-            <h3>🏀 NBA Scores 🏀</h3>
-            <div id="nbaScores"></div>
-        </section>
+        </div>
+        <div class="column">
+            <div class="card">
+                <section class="card-content" id="trivia">
+                    <h3 class="card-title">Trivia Question of the Day!</h3>
+                </section>
+            </div>
+            <div class="card">
+                <section class="card-content" id="randomFact">
+                    <h3>Random Facts</h3>
+                    <p id="lightbulbEmoji">💡</p>
+                </section>
+
+            </div>
+            <div class="card">
+                <section class="card-content">
+                    <h3>🏀 NBA Scores 🏀</h3>
+                    <div id="nbaScores"></div>
+                </section>
+
+            </div>
+        </div>
+    </div>    
     </main>
     <footer>
         <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
