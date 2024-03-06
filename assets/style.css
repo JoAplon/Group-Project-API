@@ -8,31 +8,53 @@ header,
 footer{
     text-align: center;
     background-color: pink;
+    padding: 20px;
 }
 
 .card {
-    padding: 10px;
-    border: 10px solid black;
+    padding: 5px;
+    border: 7px solid black;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 100%;
 }
 
 #ronSwansonImg {
-    width: 500px;
+    width: 100%;
+    height: 40vh;
+    object-fit: contain;
 }
 
 #harryPotterImg {
-    width: 500px;
+    width: 100%;
+    height: 40vh;
+    object-fit: contain;
 }
 
 #lightbulbEmoji {
-    /* makes the font 20x */
     font-size: 20rem;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    object-fit: contain;
 }
+
+div .columns{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* #menu{
+    float: right;
+} */
+
+.dropdown-content{
+    display: none;
+}
+
 
 /* NEWS API CARD */
 .news-card {
@@ -56,3 +78,4 @@ footer{
     margin-top: 10px;
   }
   
+
