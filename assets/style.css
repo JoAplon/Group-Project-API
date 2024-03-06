@@ -33,3 +33,23 @@ footer{
     /* makes the font 20x */
     font-size: 20rem;
 }
+
+/* NEWS API CARD */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .card a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
