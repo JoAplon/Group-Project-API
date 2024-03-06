@@ -35,8 +35,7 @@ footer{
 }
 
 #lightbulbEmoji {
-    /* makes the font 20x */
-    font-size: 10rem;
+    font-size: 20rem;
     width: 100%;
     justify-content: center;
     align-content: center;
@@ -55,3 +54,28 @@ div .columns{
 .dropdown-content{
     display: none;
 }
+
+
+/* NEWS API CARD */
+.news-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 30%; /* Adjust the width as needed */
+    float: left; /* Float the card to the left */
+    margin-right: 20px; /* Add some margin to separate from other elements */
+  }
+  
+  .news-card h3 {
+    margin-top: 0;
+  }
+  
+  .news-card a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+
