@@ -6,6 +6,8 @@ const date = document.getElementById('date')
 const time = document.getElementById('time')
 const weather = document.getElementById('weather')
 const workspace = document.getElementById('workspace')
+const trivia = document.getElementById('trivia')
+
 
 
 date.textContent = 'Today is ' + (today.format('MMMM D, YYYY'))
@@ -83,8 +85,31 @@ function randomFactCard() {
 
     })
 }
-
 randomFactCard()
+
+// trivia question API
+function triviaCard() {
+  const apiKey= 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
+  fetch('https://api.api-ninjas.com/v1/riddles', {
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  })
+  .then(function(response){
+    return response.json();
+  }).then (function(data){
+    console.log(data)
+    console.log(data[0].title)
+    console.log(data[0].question)
+    console.log(data[0].answer)
+    const createElement = document.createElement('p')
+    createElement.textContent = 'Title: ' + data[0].title + 'question' + data[0].question + 'answer' + data[0].answer
+    trivia.append(createElement)
+  })
+
+}
+triviaCard();
+
 
 function setBookmark(website) {
     const createNewSection = document.createElement('section')
@@ -96,7 +121,10 @@ function setBookmark(website) {
     workspace.append(createNewSection)
 }
 
-//need to create an input for custom urls
-setBookmark('google.com')
 
-setBookmark('https://publicapis.dev/')
+
+
+//need to create an input for custom urls
+// setBookmark('google.com')
+
+// setBookmark('https://publicapis.dev/')
