@@ -35,18 +35,21 @@ footer{
 }
 
 /* NEWS API CARD */
-.card {
+.news-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
+    width: 30%; /* Adjust the width as needed */
+    float: left; /* Float the card to the left */
+    margin-right: 20px; /* Add some margin to separate from other elements */
   }
   
-  .card h3 {
+  .news-card h3 {
     margin-top: 0;
   }
   
-  .card a {
+  .news-card a {
     display: block;
     color: #007bff;
     text-decoration: none;
