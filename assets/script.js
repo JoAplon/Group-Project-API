@@ -1,20 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded and parsed')
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(function(card) {
-      card.classList.add('is-hidden');
-  });
-  function showCard(cardId) {
-    cards.forEach(function(card) {
-        card.classList.add('is-hidden');
-    });
-    // Show the specified card
-    const cardToShow = document.getElementById(cardId);
-    if (cardToShow) {
-        cardToShow.classList.remove('is-hidden');
-    }
-}
-})
+
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
@@ -66,7 +50,7 @@ function getWeather(city) {
 
 getWeather();
 
-weatherSearch.addEventListener('click', searchForCity)
+// weatherSearch.addEventListener('click', searchForCity)
 
 function searchForCity(event){
     event.preventDefault();
@@ -84,6 +68,30 @@ function loadPastWeather() {
 }
 
 loadPastWeather()
+
+// riddle API
+function riddleCard() {
+  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
+  fetch('https://api.api-ninjas.com/v1/riddles', {
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data)
+      console.log(data[0].title)
+      console.log(data[0].question)
+      console.log(data[0].answer)
+      const createElement = document.createElement('p')
+      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
+      riddle.append(createElement)
+    })
+
+
+}
+riddleCard();
 
 //Ron Swanson quote API
 function ronSwanson() {
@@ -275,30 +283,6 @@ function getSports(date) {
 }
 getSports(yesterday)
 
-// riddle API
-function riddleCard() {
-  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
-  fetch('https://api.api-ninjas.com/v1/riddles', {
-    headers: {
-      'X-Api-Key': apiKey,
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log(data)
-      console.log(data[0].title)
-      console.log(data[0].question)
-      console.log(data[0].answer)
-      const createElement = document.createElement('p')
-      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
-      riddle.append(createElement)
-    })
-
-
-}
-riddleCard();
-
 // Dropdown menu function
 function myFunction() {
   var x = document.getElementById("Demo");
@@ -308,3 +292,21 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded and parsed')
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+      card.classList.add('is-hidden');
+  });
+  function showCard(cardId) {
+    cards.forEach(function(card) {
+        card.classList.add('is-hidden');
+    });
+    // Show the specified card
+    const cardToShow = document.getElementById(cardId);
+    if (cardToShow) {
+        cardToShow.classList.remove('is-hidden');
+    }
+}
+})
