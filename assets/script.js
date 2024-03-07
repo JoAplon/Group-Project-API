@@ -1,49 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM fully loaded and parsed')
-  // Initially hide all cards
   const cards = document.querySelectorAll('.card');
   cards.forEach(function(card) {
       card.classList.add('is-hidden');
   });
-
-  // Toggle dropdown on click
-  const dropdown = document.querySelector('.dropdown');
-  const dropdownTrigger = dropdown.querySelector('.dropdown-trigger button');
-
-  dropdownTrigger.addEventListener('click', function() {
-      dropdown.classList.toggle('is-active');
-  });
-
-  // Example function to show a specific card based on data-target attribute
   function showCard(cardId) {
-      cards.forEach(function(card) {
-          card.classList.add('is-hidden');
-      });
-
-      // Show the specified card
-      const cardToShow = document.getElementById(cardId);
-      if (cardToShow) {
-          cardToShow.classList.remove('is-hidden');
-      }
-  }
-
-  // Setup event listeners for dropdown items
-  document.querySelectorAll('.dropdown-item').forEach(function(item) {
-      item.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = e.target.getAttribute('data-target');
-          showCard(targetId);
-      });
-  });
-});
-
+    cards.forEach(function(card) {
+        card.classList.add('is-hidden');
+    });
+    // Show the specified card
+    const cardToShow = document.getElementById(cardId);
+    if (cardToShow) {
+        cardToShow.classList.remove('is-hidden');
+    }
+}
+})
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
 const today = dayjs();
 
 //variable for yesterdays date
-
 const todayMinus = dayjs().subtract(1, 'day');
 //use this for sports card
 const yesterday = todayMinus.format('YYYY-MM-DD');
@@ -81,7 +58,6 @@ function getWeather(city) {
             console.log(data.sys.sunrise);
             console.log(data.sys.sunset);
             const createElement = document.createElement('p');
-            createElement.classList.add('hidden');
             createElement.textContent = city + data.weather[0].main + 'the temperature is ' + data.main.temp + 'sunrise: ' + data.sys.sunrise + 'sunset ' + data.sys.sunset;
             weatherResults.append(createElement);
         });
@@ -323,52 +299,12 @@ function riddleCard() {
 }
 riddleCard();
 
-// draggable cards functions
-const cards = document.querySelectorAll('.card');
-const dropZone = document.getElementById('workspace')
-
-cards.forEach(card => {
-  card.addEventListener('dragstart', () => {
-    card.classList.add('dragging');
-    console.log();
-  });
-  card.addEventListener('dragend', () => card.classList.remove('dragging'));
-  dropZone.addEventListener('drop', () => {
-    dropZone.prepend(card)
-  })
-});
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const draggableCards = document.querySelectorAll('.draggable-card');
-//   const dropColumns = document.querySelectorAll('.dropcolumn');
-
-//   // Add dragstart and dragend listeners to each card
-//   draggableCards.forEach(function (card) {
-//     card.addEventListener('dragstart', function (event) {
-//       event.dataTransfer.setData('text/plain', card.id);
-//       card.classList.add('dragging');
-//     });
-
-//     card.addEventListener('dragend', function (event) {
-//       card.classList.remove('dragging');
-//     });
-//   });
-
-//   // Add dragover and drop listeners to each drop column
-//   dropColumns.forEach(function (dropColumn) {
-//     dropColumn.addEventListener('dragover', function (event) {
-//       event.preventDefault();
-//       event.dataTransfer.dropEffect = 'move';
-//     });
-
-//     dropColumn.addEventListener('drop', function (event) {
-//       event.preventDefault();
-//       const draggedCardId = event.dataTransfer.getData('text/plain');
-//       const draggedCard = document.getElementById(draggedCardId);
-//       dropColumn.appendChild(draggedCard);
-//     });
-//   });
-// });
-  
-  triviaCard();
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
