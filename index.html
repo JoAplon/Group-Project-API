@@ -2,144 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" 
-    crossorigin="anonymous"></script>
-    <title>Homepage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>Homepage</title>
 </head>
 
 <body>
-    <header>
-        <h1> ☆ Welcome! ☆</h1>
-        <h2 id="date"></h2>
-        <h2 id="time"></h2>
-    </header>
-    <!-- add a dropdown to select which cards are visible -->
-    <div id="menu" class="dropdown is-active">
-            <div class="dropdown-trigger">
-              <button class="dropdownbutton" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Dropdown Menu</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down"></i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
-                  First Card
-                </a>
-                <a class="dropdown-item">
-                  Second Card
-                </a>
-                <a href="#" class="dropdown-item">
-                  Third Card
-                </a>
-                <a href="#" class="dropdown-item">
-                  Fourth Card
-                </a>
-                <a href="#" class="dropdown-item">
-                  Fith Card
-                </a>
-                <a href="#" class="dropdown-item">
-                    Sixth Card
-                  </a>
-              </div>
-            </div>
-          </div>
-    <div class="columns container-fluid" id="workspace">
-        <!-- COLUMN 1 -->
-        <div class="column" id="dropcolumn">
-            <div class="card draggable-card" draggable="true" id="dragcard1">
-                <section class="card-content" id="weather" >
-                    <h3>Weather</h3>
-                    <input type="text" id="weatherInput" placeholder="City">
-                    <button id="weatherSearch">Search</button>
-                    <div id="weatherResults"></div>
-                </section>
-            </div>
-            <div class="card draggable-card" draggable="true" id="dragcard2">
-                <section class="card-content" id="news">
-                    <h3>Daily News</h3>
-                    <!-- Add an input field for user to enter their query -->
-                    <input type="text" id="query-input" placeholder="Enter News of Intereset">
-                    <!-- Add a button to trigger the search -->
-                    <button id="search-btn">Search</button>
-                    <section id="query"></section>
-                    <!-- Container to display news -->
-                    <div id="news-container"></div>
-                </section>
-            </div>
-            <div class="card">
-                <section class="card-content">
-                    <h3>🏀 NBA Scores 🏀</h3>
-                    <div id="nbaScores"></div>
-                </section>
-    
-            </div>
-        </div>
-        <!-- COLUMN 2 -->
-        <div class="column" id="dropcolumn">
-            <div class="card draggable-card" draggable="true" id="dragcard3">
-                <section class="card-content" id="ronQuote">
-                    <h3>Ron Swanson Random Quote</h3>
-                    <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
-                </section>
-            </div>
-            <div class="card draggable-card" draggable="true" id="dragcard4">
-                <section class="card-content" id="harryPotterQuote">
-                    <h3>Harry Potter Random Quote</h3>
-                    <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp" alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
-                </section>
-                
-            </div>
-
-        </div>
-        <div class="column" id="dropcolumn">
-            <div class="card draggable-card" draggable="true" id="dragcard5">
-                <section class="card-content" id="riddle" >
-                    <h3 class="card-title">Trivia Question of the Day!</h3><br>
-                    <p> </p>
-                </section>
-            </div>
-            <div class="card draggable-card" draggable="true" id="dragcard6">
-                <section class="card-content" id="randomFact">
-                    <h3>Random Facts</h3>
-                    <p id="lightbulbEmoji">💡</p>
-                </section>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- modal here -->
-<button id="clickMe">hit me</button>
-
-    <div id="modal-js-example" class="modal">
-      <div class="modal-background"></div>
-    
-      <div class="modal-content">
-        <div class="box">
-          <p>Modal JS example</p>
-          <!-- Your content -->
+  <header>
+    <h1> ☆ Welcome! ☆</h1>
+    <h2 id="date"></h2>
+    <h2 id="time"></h2>
+    <div class="w3-container">
+      <div class="w3-dropdown-click">
+        <button onclick="myFunction()" class="w3-button w3-black">Menu</button>
+        <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+          <a href="#" class="w3-bar-item w3-button">weather</a>
+          <a href="#" class="w3-bar-item w3-button">Card 2</a>
+          <a href="#" class="w3-bar-item w3-button">Card 3</a>
+          <a href="#" class="w3-bar-item w3-button">Card 4</a>
+          <a href="#" class="w3-bar-item w3-button">Card 5</a>
+          <a href="#" class="w3-bar-item w3-button">Card 6</a>
+          <a href="#" class="w3-bar-item w3-button">Card 7</a>
         </div>
       </div>
-    
-      <button class="modal-close is-large" aria-label="close"></button>
     </div>
-    <!-- modal end -->
-    
-    
-    <footer>
-      <h1>♡ Have A Great Day! ♡</h1>
-        <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
-    </footer>
-    <script src="./assets/script.js"></script>
+  </header>
+  <!-- add a dropdown to select which cards are visible -->
+  <div class="columns container-fluid" id="workspace">
+    <!-- COLUMN 1 -->
+    <div class="column" id="dropcolumn">
+      <div class="w3-container draggable-card" draggable="true" id="dragcard1">
+        <section class="w3-container w3-center w3-card-4 card-content" id="weather">
+          <div class="cardHeader">
+            <h3>Weather</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>
+        </section>
+      </div>
+      <div class="w3-container draggable-card" draggable="true" id="dragcard2">
+        <section class="w3-container w3-center w3-card-4 card-content" id="news">
+          <div class="cardHeader">
+            <h3>Daily News</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>  
+          <!-- Add an input field for user to enter their query -->
+          <input type="text" id="query-input" placeholder="Enter News of Intereset">
+          <!-- Add a button to trigger the search -->
+          <button id="search-btn">Search</button>
+          <!-- Container to display news -->
+          <div id="news-container"></div>
+        </section>
+      </div>
+    </div>
+    <!-- COLUMN 2 -->
+    <div class="column" id="dropcolumn">
+      <div class="w3-container draggable-card" draggable="true" id="dragcard3">
+        <section class="w3-container w3-center w3-card-4 card-content" id="ronQuote">
+          <div class="cardHeader">
+            <h3>Ron Swanson Random Quote</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>
+          <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
+        </section>
+      </div>
+      <div class="w3-container draggable-card" draggable="true" id="dragcard4">
+        <section class="w3-container w3-center w3-card-4 card-content" id="harryPotterQuote">
+          <div class="cardHeader">
+            <h3>Harry Potter Random Quote</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>
+          <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp"
+            alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
+        </section>
+      </div>
+    </div>
+    <div class="column" id="dropcolumn">
+      <div class="w3-container draggable-card" draggable="true" id="dragcard5">
+        <section class="w3-container w3-center w3-card-4 card-content" id="riddle">
+          <div class="cardHeader">
+            <h3 class="card-title"> Riddle of the Day!</h3><br>
+            <button onclick="openModal()">&times;</button>
+          </div>
+          <p> </p>
+        </section>
+      </div>
+      <!-- W3 Random Fact Card -->
+      <div class=" w3-container draggable-card" draggable="true" id="dragcard6">
+        <section class="w3-container w3-center w3-card-4 card-content" id="randomFact">
+          <div class="cardHeader">
+            <h3>Random Facts</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>
+          <!-- <img src="https://th.bing.com/th/id/R.f6ca97eeeff466bb091193349ad83455?rik=LVk0GPlIZTb6Jg&riu=http%3a%2f%2fimages.lights.com%2flatest%2f36684%2fzoom%2f220.jpg&ehk=Ayn3%2fUd%2fLz4Rr7CxgnNAljmawEGnRLU5gcSlA%2f4e6o8%3d&risl=&pid=ImgRaw&r=0" alt="Light Bulb" style="width:100%"> -->
+          <!-- <p id="lightbulbEmoji">💡</p> -->
+        </section>
+      
+      </div>
+      <!-- W3 NBA card -->
+      <div class="w3-container draggable-card" draggable="true" id="dragcard7">
+        <section class="w3-container w3-center w3-card-4 card-content">
+          <div class="cardHeader">
+            <h3>🏀 NBA Scores 🏀</h3>
+            <button onclick="openModal()">&times;</button>
+          </div>
+          <div id="nbaScores"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal container -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <!-- <h2>Modal Title</h2> -->
+        <p>are you sure you want to close NBA scores?</p>
+        <button id="confirmButton">yes</button>
+        <button id="cancelButton">no</button>
+    </div>
+  </div>
+
+  </main>
+  <footer>
+    <h1>♡ Have A Great Day! ♡</h1>
+    <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
+  </footer>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>

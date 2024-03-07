@@ -2,7 +2,6 @@ const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
 const today = dayjs();
-
 //variable for yesterdays date
 const todayMinus = dayjs().subtract(1, 'day');
 //use this for sports card
@@ -11,13 +10,40 @@ const date = document.getElementById('date');
 const time = document.getElementById('time');
 const weather = document.getElementById('weather');
 const workspace = document.getElementById('workspace');
-
 const riddle = document.getElementById('riddle')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
-const clickMe = document.getElementById('clickMe')
-const modal = document.querySelectorAll('.modal')
+const confirmModal = document.getElementById('confirmButton')
+const cancelModal = document.getElementById('cancelButton')
+const basketballCard = document.getElementById('dragcard7')
+
+cancelModal.addEventListener ('click', closeModal)
+confirmModal.addEventListener('click', closeCard)
+
+function closeCard(){
+  basketballCard.classList.add('is-hidden')
+  document.getElementById("myModal").style.display = "none"
+}
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
 
@@ -50,7 +76,7 @@ function getWeather(city) {
 
 getWeather();
 
-weatherSearch.addEventListener('click', searchForCity)
+// weatherSearch.addEventListener('click', searchForCity)
 
 function searchForCity(event){
     event.preventDefault();
@@ -282,108 +308,4 @@ function riddleCard() {
 
 }
 riddleCard();
-
-// draggable cards functions
-const cards = document.querySelectorAll('.card');
-const dropZone = document.getElementById('workspace')
-
-cards.forEach(card => {
-  card.addEventListener('dragstart', () => {
-    card.classList.add('dragging');
-    console.log();
-  });
-  card.addEventListener('dragend', () => card.classList.remove('dragging'));
-  dropZone.addEventListener('drop', () => {
-    dropZone.prepend(card)
-  })
-});
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const draggableCards = document.querySelectorAll('.draggable-card');
-//   const dropColumns = document.querySelectorAll('.dropcolumn');
-
-//   // Add dragstart and dragend listeners to each card
-//   draggableCards.forEach(function (card) {
-//     card.addEventListener('dragstart', function (event) {
-//       event.dataTransfer.setData('text/plain', card.id);
-//       card.classList.add('dragging');
-//     });
-
-//     card.addEventListener('dragend', function (event) {
-//       card.classList.remove('dragging');
-//     });
-//   });
-
-//   // Add dragover and drop listeners to each drop column
-//   dropColumns.forEach(function (dropColumn) {
-//     dropColumn.addEventListener('dragover', function (event) {
-//       event.preventDefault();
-//       event.dataTransfer.dropEffect = 'move';
-//     });
-
-//     dropColumn.addEventListener('drop', function (event) {
-//       event.preventDefault();
-//       const draggedCardId = event.dataTransfer.getData('text/plain');
-//       const draggedCard = document.getElementById(draggedCardId);
-//       dropColumn.appendChild(draggedCard);
-//     });
-//   });
-// });
-  
-triviaCard();
-
-
-//for opening modal
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Functions to open and close a modal
-//   function openModal($el) {
-//     $el.classList.add('is-active');
-//   }
-
-//   function closeModal($el) {
-//     $el.classList.remove('is-active');
-//   }
-
-//   function closeAllModals() {
-//     (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-//       closeModal($modal);
-//     });
-//   }
-
-//   // Add a click event on buttons to open a specific modal
-//   (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-//     const modal = $trigger.dataset.target;
-//     const $target = document.getElementById(modal);
-
-//     $trigger.addEventListener('click', () => {
-//       openModal($target);
-//     });
-//   });
-
-//   // Add a click event on various child elements to close the parent modal
-//   (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-//     const $target = $close.closest('.modal');
-
-//     $close.addEventListener('click', () => {
-//       closeModal($target);
-//     });
-//   });
-
-//   // Add a keyboard event to close all modals
-//   document.addEventListener('keydown', (event) => {
-//     if(event.key === "Escape") {
-//       closeAllModals();
-//     }
-//   });
-// });
-function openModal() {
-  // modal.classList.add('is-active')
-  console.log('click')
-}
-
-clickMe.addEventListener('click', openModal)
-
-
-
 
