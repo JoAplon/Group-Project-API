@@ -3,7 +3,6 @@ const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
 const today = dayjs();
-
 //variable for yesterdays date
 const todayMinus = dayjs().subtract(1, 'day');
 //use this for sports card
@@ -12,12 +11,40 @@ const date = document.getElementById('date');
 const time = document.getElementById('time');
 const weather = document.getElementById('weather');
 const workspace = document.getElementById('workspace');
-
 const riddle = document.getElementById('riddle')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
+const confirmModal = document.getElementById('confirmButton')
+const cancelModal = document.getElementById('cancelButton')
+const basketballCard = document.getElementById('dragcard7')
 
+cancelModal.addEventListener ('click', closeModal)
+confirmModal.addEventListener('click', closeCard)
+
+function closeCard(){
+  basketballCard.classList.add('is-hidden')
+  document.getElementById("myModal").style.display = "none"
+}
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
 
