@@ -6,22 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" 
+      crossorigin="anonymous"></script>
     <title>Homepage</title>
 </head>
 
 <body>
     <header>
-        <h1>Welcome</h1>
+        <h1> ☆ Welcome! ☆</h1>
         <h2 id="date"></h2>
         <h2 id="time"></h2>
     </header>
     <!-- add a dropdown to select which cards are visible -->
     <div id="menu" class="dropdown is-active">
             <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Drop Menu</span>
+              <button class="dropdownbutton" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>Dropdown Menu</span>
                 <span class="icon is-small">
                   <i class="fas fa-angle-down"></i>
                 </span>
@@ -52,13 +54,13 @@
           </div>
     <div class="columns container-fluid" id="workspace">
         <!-- COLUMN 1 -->
-        <div class="column">
-            <div class="card">
-                <section class="card-content" id="weather">
+        <div class="column" id="dropcolumn">
+            <div class="card draggable-card" draggable="true" id="dragcard1">
+                <section class="card-content" id="weather" >
                     <h3>Weather</h3>
                 </section>
             </div>
-            <div class="card">
+            <div class="card draggable-card" draggable="true" id="dragcard2">
                 <section class="card-content" id="news">
                     <h3>Daily News</h3>
                     <!-- Add an input field for user to enter their query -->
@@ -71,14 +73,14 @@
             </div>
         </div>
         <!-- COLUMN 2 -->
-        <div class="column">
-            <div class="card">
+        <div class="column" id="dropcolumn">
+            <div class="card draggable-card" draggable="true" id="dragcard3">
                 <section class="card-content" id="ronQuote">
                     <h3>Ron Swanson Random Quote</h3>
                     <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
                 </section>
             </div>
-            <div class="card">
+            <div class="card draggable-card" draggable="true" id="dragcard4">
                 <section class="card-content" id="harryPotterQuote">
                     <h3>Harry Potter Random Quote</h3>
                     <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp" alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
@@ -87,20 +89,21 @@
             </div>
 
         </div>
-        <div class="column">
-            <div class="card">
-                <section class="card-content" id="trivia">
-                    <h3 class="card-title">Trivia Question of the Day!</h3>
+        <div class="column" id="dropcolumn">
+            <div class="card draggable-card" draggable="true" id="dragcard5">
+                <section class="card-content" id="riddle" >
+                    <h3 class="card-title">Trivia Question of the Day!</h3><br>
+                    <p> </p>
                 </section>
             </div>
-            <div class="card">
+            <div class="card draggable-card" draggable="true" id="dragcard6">
                 <section class="card-content" id="randomFact">
                     <h3>Random Facts</h3>
                     <p id="lightbulbEmoji">💡</p>
                 </section>
 
             </div>
-            <div class="card">
+            <div class="card draggable-card" draggable="true" id="dragcard7">
                 <section class="card-content">
                     <h3>🏀 NBA Scores 🏀</h3>
                     <div id="nbaScores"></div>
@@ -111,6 +114,7 @@
     </div>    
     </main>
     <footer>
+      <h1>♡ Have A Great Day! ♡</h1>
         <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
     </footer>
     <script src="./assets/script.js"></script>
