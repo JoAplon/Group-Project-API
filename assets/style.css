@@ -8,13 +8,19 @@
 header, 
 footer{
     text-align: center;
-    background-color: pink;
+    background-color: #7a9d96;
     padding: 20px;
+    color: black;
+}
+
+body{
+    background-color: #F7F5E6;
 }
 
 .card {
     padding: 5px;
-    border: 7px solid black;
+    border: 4px solid rgb(125, 125, 125);
+    border-style:dashed;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -36,11 +42,15 @@ footer{
 }
 
 #lightbulbEmoji {
-    font-size: 20rem;
+    font-size: 10rem;
     width: 100%;
     justify-content: center;
     align-content: center;
     object-fit: contain;
+}
+
+w3-card4 img{
+    height:;
 }
 
 div .columns{
@@ -48,12 +58,12 @@ div .columns{
     flex-wrap: wrap;
 }
 
-/* #menu{
-    float: right;
-} */
+.w3-dropdown-click{
+    float: left;
+}
 
-.dropdown-content{
-    display: none;
+button{
+    background-color: #C0B283;
 }
 
 
@@ -77,4 +87,12 @@ div .columns{
     text-decoration: none;
     margin-top: 10px;
   }
+
+
+  @media screen and (max-width: 992px) {
+    header, footer {
+      background: #C0B283;
+    }
+  }
+
 
