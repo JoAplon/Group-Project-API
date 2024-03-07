@@ -48,27 +48,17 @@ body{
     object-fit: contain;
 }
 
+w3-card4 img{
+    height:;
+}
+
 div .columns{
     display: flex;
     flex-wrap: wrap;
 }
 
-#menu{
-    margin-left: 10px;
-}
-
-span{
-    margin-left: 5px;
-}
-
-
-.dropdown-content{
-    display: none;
-}
-
-.dropdownbutton{
-    margin: 10px;
-    padding: 10px;
+.w3-dropdown-click{
+    float: left;
 }
 
 button{

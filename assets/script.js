@@ -1,3 +1,20 @@
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded and parsed')
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+      card.classList.add('is-hidden');
+  });
+  function showCard(cardId) {
+    cards.forEach(function(card) {
+        card.classList.add('is-hidden');
+    });
+    // Show the specified card
+    const cardToShow = document.getElementById(cardId);
+    if (cardToShow) {
+        cardToShow.classList.remove('is-hidden');
+    }
+}
+})
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
@@ -282,55 +299,12 @@ function riddleCard() {
 }
 riddleCard();
 
-// draggable cards functions
-const cards = document.querySelectorAll('.card');
-const dropZone = document.getElementById('workspace')
-
-cards.forEach(card => {
-  card.addEventListener('dragstart', () => {
-    card.classList.add('dragging');
-    console.log();
-  });
-  card.addEventListener('dragend', () => card.classList.remove('dragging'));
-  dropZone.addEventListener('drop', () => {
-    dropZone.prepend(card)
-  })
-});
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const draggableCards = document.querySelectorAll('.draggable-card');
-//   const dropColumns = document.querySelectorAll('.dropcolumn');
-
-//   // Add dragstart and dragend listeners to each card
-//   draggableCards.forEach(function (card) {
-//     card.addEventListener('dragstart', function (event) {
-//       event.dataTransfer.setData('text/plain', card.id);
-//       card.classList.add('dragging');
-//     });
-
-//     card.addEventListener('dragend', function (event) {
-//       card.classList.remove('dragging');
-//     });
-//   });
-
-//   // Add dragover and drop listeners to each drop column
-//   dropColumns.forEach(function (dropColumn) {
-//     dropColumn.addEventListener('dragover', function (event) {
-//       event.preventDefault();
-//       event.dataTransfer.dropEffect = 'move';
-//     });
-
-//     dropColumn.addEventListener('drop', function (event) {
-//       event.preventDefault();
-//       const draggedCardId = event.dataTransfer.getData('text/plain');
-//       const draggedCard = document.getElementById(draggedCardId);
-//       dropColumn.appendChild(draggedCard);
-//     });
-//   });
-// });
-=======
-  
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
   }
-  triviaCard();
-
+}
