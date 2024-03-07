@@ -1,3 +1,4 @@
+
 * {
     border: 0px;
     margin: 0px;
@@ -66,7 +67,6 @@ div .columns{
     float: left; /* Float the card to the left */
     margin-right: 20px; /* Add some margin to separate from other elements */
   }
-  
   .news-card h3 {
     margin-top: 0;
   }
@@ -77,5 +77,4 @@ div .columns{
     text-decoration: none;
     margin-top: 10px;
   }
-  
 
