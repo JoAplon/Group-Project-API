@@ -1,3 +1,20 @@
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded and parsed')
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+      card.classList.add('is-hidden');
+  });
+  function showCard(cardId) {
+    cards.forEach(function(card) {
+        card.classList.add('is-hidden');
+    });
+    // Show the specified card
+    const cardToShow = document.getElementById(cardId);
+    if (cardToShow) {
+        cardToShow.classList.remove('is-hidden');
+    }
+}
+})
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
@@ -309,3 +326,12 @@ function riddleCard() {
 }
 riddleCard();
 
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
