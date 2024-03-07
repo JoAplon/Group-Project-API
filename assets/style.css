@@ -1,3 +1,4 @@
+
 * {
     border: 0px;
     margin: 0px;
@@ -76,7 +77,6 @@ button{
     float: left; /* Float the card to the left */
     margin-right: 20px; /* Add some margin to separate from other elements */
   }
-  
   .news-card h3 {
     margin-top: 0;
   }
@@ -88,9 +88,11 @@ button{
     margin-top: 10px;
   }
 
+
   @media screen and (max-width: 992px) {
     header, footer {
       background: #C0B283;
     }
   }
+
 
