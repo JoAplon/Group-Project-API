@@ -148,6 +148,7 @@ document.getElementById('potterSelect').addEventListener('click', addCard4)
 document.getElementById('riddleSelect').addEventListener('click', addCard5)
 document.getElementById('randomSelect').addEventListener('click', addCard6)
 document.getElementById('nbaSelect').addEventListener('click', addCard7)
+document.getElementById('dogSelect').addEventListener('click', addCard8)
 
 function addCard1() {
   weather.classList.remove('is-hidden')
@@ -169,6 +170,9 @@ function addCard6() {
 }
 function addCard7() {
   nbaScoresCard.classList.remove('is-hidden')
+}
+function addCard8() {
+  randomDog.classList.remove('is-hidden')
 }
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
