@@ -206,7 +206,7 @@
         drop: function (event, ui) {
           // Handle the drop event here
           // You can access the dragged card using ui.helper
-          const card = ui.helper.original();
+          const card = ui.draggable;
           const mouseX = event.pageX - $(this).offset().left;
 
           let insertAt = 0;
@@ -222,17 +222,14 @@
             $(this).children('.draggable-card').eq(insertAt - 1).after(card);
           }
 
-          ui.helper.draggable({
-            helper: "original",
-            revert: "invalid",
-          });
+          card.css({ top: 0, left: 0 }); 
         },
       });
 
       $(".header").droppable({
         accept: ".draggable-card",
         drop: function (event, ui) {
-          ui.helper.remove();
+          ui.draggable.remove();
         },
       });
     });
