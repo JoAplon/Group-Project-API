@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>Homepage</title>
+</head>
+
+<body>
+  <header>
+    <h1> ☆ Welcome! ☆</h1>
+    <h2 id="date"></h2>
+    <h2 id="time"></h2>
+    <div class="w3-container">
+      <div class="w3-dropdown-click">
+
+        <button onclick="myFunction()" class="w3-button w3-">Menu</button>
+        <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+          <button class="w3-bar-item w3-button" id="weatherSelect">Weather</button>
+          <button class="w3-bar-item w3-button" id="newsSelect">Daily News</button>
+          <button class="w3-bar-item w3-button" id="swansonSelect">Ron Swanson Quote</button>
+          <button class="w3-bar-item w3-button" id="potterSelect">Harry Potter Quote</button>
+          <button class="w3-bar-item w3-button" id="riddleSelect">Riddle of the day!</button>
+          <button class="w3-bar-item w3-button" id="randomSelect">Random Facts</button>
+          <button class="w3-bar-item w3-button" id="nbaSelect">NBA Scores</button>
+          <button class="w3-bar-item w3-button" id="dogSelect">Dog Pictures!</a>
+          <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
+          
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <main>
+    <div class="columns container-fluid" id="workspace">
+      <!-- COLUMN 1 -->
+      <div class="column" id="dropcolumn">
+        <div class="w3-container draggable-card" draggable="true" id="dragcard1">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="weather">
+            <button onclick="openModal1()">Close Window</button>
+            <h3 class="card-header">Weather</h3>
+            <input type="text" id="weatherInput" placeholder="Enter City">
+            <button id="weatherSearch">Search</button>
+            <div id="weatherResults"></div>
+          </section>
+        </div>
+        <div class="w3-container draggable-card" draggable="true" id="dragcard2">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="news">
+            <button onclick="openModal2()">Close Window</button>
+            <h3 class="card-header">Daily News</h3>
+            <!-- Add an input field for user to enter their query -->
+            <input type="text" id="query-input" placeholder="Enter News of Interest">
+            <!-- Add a button to trigger the search -->
+            <button id="search-btn">Search</button>
+            <!-- Container to display news -->
+            <div id="news-container"></div>
+          </section>
+        </div>
+      </div>
+      <!-- COLUMN 2 -->
+      <div class="column" id="dropcolumn">
+        <div class="w3-container draggable-card" draggable="true" id="dragcard3">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="ronQuote">
+            <button onclick="openModal3()">Close Window</button>
+            <h3 class="card-header">Ron Swanson Once Said:</h3>
+            <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
+          </section>
+        </div>
+        <div class="w3-container draggable-card" draggable="true" id="dragcard4">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="harryPotterQuote">
+            <button onclick="openModal4()">Close Window</button>
+            <h3 class="card-header">Harry Potter Random Quote</h3>
+            <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp"
+              alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
+          </section>
+        </div>
+      </div>
+      <div class="column" id="dropcolumn">
+        <div class="w3-container draggable-card" draggable="true" id="dragcard5">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="riddle">
+            <button onclick="openModal5()">Close Window</button>
+            <h3 class="card-header"> Riddle of the Day!</h3><br>
+            <p></p>
+          </section>
+        </div>
+        <!-- W3 Random Fact Card -->
+        <div class=" w3-container draggable-card" draggable="true" id="dragcard6">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="randomFact">
+            <button onclick="openModal6()">Close Window</button>
+            <h3 class="card-header">Random Facts</h3>
+            <!-- <img src="https://th.bing.com/th/id/R.f6ca97eeeff466bb091193349ad83455?rik=LVk0GPlIZTb6Jg&riu=http%3a%2f%2fimages.lights.com%2flatest%2f36684%2fzoom%2f220.jpg&ehk=Ayn3%2fUd%2fLz4Rr7CxgnNAljmawEGnRLU5gcSlA%2f4e6o8%3d&risl=&pid=ImgRaw&r=0" alt="Light Bulb" style="width:100%"> -->
+            <!-- <p id="lightbulbEmoji">💡</p> -->
+          </section>
+        </div>
+        <!-- W3 NBA card -->
+        <div class="w3-container draggable-card" draggable="true" id="dragcard7">
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="nbaScoresCard">
+            <button onclick="openModal7()">Close Window</button>
+            <h3 class="card-header">🏀 NBA Scores 🏀</h3>
+            <div id="nbaScores"></div>
+          </section>
+        </div>
+        <div class="w3-container draggable-card" draggable="true" id="dragcard8">
+        <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
+          <button onclick="openModal8()">Close Window</button>
+          <h3>Dog Pictures!</h3>
+          <p id="dogcontainer"></p>
+        </section>
+      </div>
+      </div>
+    </div>
+  
+    <div id="myModal1" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close the weather?</p>
+        <button id="confirmBtn1">Yes</button>
+        <button id="cancelBtn1">No</button>
+      </div>
+    </div>
+    <div id="myModal2" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close the news?</p>
+        <button id="confirmBtn2">Yes</button>
+        <button id="cancelBtn2">No</button>
+      </div>
+    </div>
+    <div id="myModal3" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close Ron Swanson Quotes?</p>
+        <button id="confirmBtn3">Yes</button>
+        <button id="cancelBtn3">No</button>
+      </div>
+    </div>
+    <div id="myModal4" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close Harry Potter Quotes?</p>
+        <button id="confirmBtn4">Yes</button>
+        <button id="cancelBtn4">No</button>
+      </div>
+    </div>
+    <div id="myModal5" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close the Riddle of the Day?</p>
+        <button id="confirmBtn5">Yes</button>
+        <button id="cancelBtn5">No</button>
+      </div>
+    </div>
+    <div id="myModal6" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close Random Facts?</p>
+        <button id="confirmBtn6">Yes</button>
+        <button id="cancelBtn6">No</button>
+      </div>
+    </div>
+    <div id="myModal7" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close NBA scores?</p>
+        <button id="confirmBtn7">Yes</button>
+        <button id="cancelBtn7">No</button>
+      </div>
+    </div>
+    <div id="myModal8" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close Dog Pictures?</p>
+        <button id="confirmBtn8">Yes</button>
+        <button id="cancelBtn8">No</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h1>♡ Have A Great Day! ♡</h1>
+    <h2>Created By: Jordan Aplon, Jason Dang, & Andrew Yang</h2>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="./assets/script.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".draggable-card").draggable({
+        helper: "original",
+
+        // revert: "invalid",
+      });
+
+      $(".column").droppable({
+        accept: ".draggable-card",
+        drop: function (event, ui) {
+          // Handle the drop event here
+          // You can access the dragged card using ui.helper
+          // For example: $(this).append(ui.helper.clone());
+          $(this).append(ui.helper);
+
+        },
+      });
+      // Re-enable dragging on the dropped card
+      $('.draggable-card').on('click', function () {
+        $(this).draggable('enable');
+      });
+    });
+  </script>
+</body>
+
+</html>
