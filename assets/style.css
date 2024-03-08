@@ -27,21 +27,12 @@ header, footer {
 }
 
 .menu-btn {
-<<<<<<< HEAD
-    position: relative;
-    top: 15px;
-    left: 0%;
-    margin: 20px;
-    background-color: #7e9a9a;
-    color: white;
-=======
     position: relative; /* Sticks the button to a specific position regardless of scrolling */
     top: 15px; /* Aligns the button to the top */
     left: 0; /* Aligns the button to the left */
     margin: 20px; /* Adds some space from the top and left edges */
     background-color: #7e9a9a; /* Matches other button styles, adjust as needed */
     color: white; /* Text color */
->>>>>>> dev
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
