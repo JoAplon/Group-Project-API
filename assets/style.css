@@ -21,8 +21,8 @@ header, footer {
 }
 
 .menu-btn {
-    position: fixed; /* Sticks the button to a specific position regardless of scrolling */
-    top: 150px; /* Aligns the button to the top */
+    position: relative; /* Sticks the button to a specific position regardless of scrolling */
+    top: 15px; /* Aligns the button to the top */
     left: 0; /* Aligns the button to the left */
     margin: 20px; /* Adds some space from the top and left edges */
     background-color: #7e9a9a; /* Matches other button styles, adjust as needed */
