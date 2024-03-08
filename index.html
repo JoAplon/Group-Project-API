@@ -31,8 +31,8 @@
           <button class="w3-bar-item w3-button" id="randomSelect">Random Facts</button>
           <button class="w3-bar-item w3-button" id="nbaSelect">NBA Scores</button>
           <button class="w3-bar-item w3-button" id="dogSelect">Dog Pictures!</a>
-          <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
-          
+            <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
+
         </div>
       </div>
     </div>
@@ -108,15 +108,15 @@
           </section>
         </div>
         <div class="w3-container draggable-card" draggable="true" id="dragcard8">
-        <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
-          <button onclick="openModal8()">Close Window</button>
-          <h3>Dog Pictures!</h3>
-          <p id="dogcontainer"></p>
-        </section>
-      </div>
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
+            <button onclick="openModal8()">Close Window</button>
+            <h3>Dog Pictures!</h3>
+            <p id="dogcontainer"></p>
+          </section>
+        </div>
       </div>
     </div>
-  
+
     <div id="myModal1" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
@@ -194,7 +194,7 @@
       $(".draggable-card").draggable({
         helper: "original",
 
-        // revert: "invalid",
+        revert: "invalid",
       });
 
       $(".column").droppable({
@@ -202,14 +202,34 @@
         drop: function (event, ui) {
           // Handle the drop event here
           // You can access the dragged card using ui.helper
-          // For example: $(this).append(ui.helper.clone());
-          $(this).append(ui.helper);
+          const card = ui.helper.original();
+          const mouseX = event.pageX - $(this).offset().left;
 
+          let insertAt = 0;
+
+          $(this).children('.draggable-card').each(function (index, element) {
+            if (mouseX > $(element).offset().left) {
+              insertAt = index + 1;
+            }
+          });
+          if (insertAt === 0) {
+            $(this).prepend(card);
+          } else {
+            $(this).children('.draggable-card').eq(insertAt - 1).after(card);
+          }
+
+          ui.helper.draggable({
+            helper: "original",
+            revert: "invalid",
+          });
         },
       });
-      // Re-enable dragging on the dropped card
-      $('.draggable-card').on('click', function () {
-        $(this).draggable('enable');
+
+      $(".header").droppable({
+        accept: ".draggable-card",
+        drop: function (event, ui) {
+          ui.helper.remove();
+        },
       });
     });
   </script>
