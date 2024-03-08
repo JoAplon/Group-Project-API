@@ -63,7 +63,7 @@ h3 {
 }
 
 p {
-    margin: 10px 0;
+    text-align: left;
 }
 
 div.columns {
@@ -105,15 +105,14 @@ button {
 }
 
 .modal {
-    position: relative;
-    position: fixed;
+    position: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
-    max-width: 90%;
-    height: auto; 
-    padding: 20px;
+    width: 400px;
+    max-width: 50%;
+    height: 100px; 
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px; 
     background-color: #fff;
