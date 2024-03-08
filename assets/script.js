@@ -74,34 +74,42 @@ function openModal8() {
   // event listeners for confirmation
 confirmBtn1.addEventListener("click", function() {
   weather.classList.add('is-hidden');
+  localStorage.setItem('card1', 'hidden')
   closeModal1();
 });
 confirmBtn2.addEventListener("click", function() {
   newsCard.classList.add('is-hidden');
+  localStorage.setItem('card2', 'hidden')
   closeModal2();
 });
 confirmBtn3.addEventListener("click", function() {
   ronQuote.classList.add('is-hidden');
+  localStorage.setItem('card3', 'hidden')
   closeModal3();
 });
 confirmBtn4.addEventListener("click", function() {
   harryPotterQuote.classList.add('is-hidden');
+  localStorage.setItem('card4', 'hidden')
   closeModal4();
 });
 confirmBtn5.addEventListener("click", function() {
   riddle.classList.add('is-hidden');
+  localStorage.setItem('card5', 'hidden')
   closeModal5();
 });
 confirmBtn6.addEventListener("click", function() {
   randomFact.classList.add('is-hidden');
+  localStorage.setItem('card6', 'hidden')
   closeModal6();
 });
 confirmBtn7.addEventListener("click", function() {
   nbaScoresCard.classList.add('is-hidden');
+  localStorage.setItem('card7', 'hidden')
   closeModal7();
 });
 confirmBtn8.addEventListener("click", function() {
   randomDog.classList.add('is-hidden');
+  localStorage.setItem('card8', 'hidden')
   closeModal8();
 });
 
@@ -152,28 +160,110 @@ document.getElementById('dogSelect').addEventListener('click', addCard8)
 
 function addCard1() {
   weather.classList.remove('is-hidden')
+  localStorage.setItem("card1", 'not-hidden')
 }
 function addCard2() {
   newsCard.classList.remove('is-hidden')
+  localStorage.setItem("card2", 'not-hidden')
 }
 function addCard3() {
   ronQuote.classList.remove('is-hidden')
+  localStorage.setItem("card3", 'not-hidden')
 }
 function addCard4() {
   harryPotterQuote.classList.remove('is-hidden')
+  localStorage.setItem("card4", 'not-hidden')
 }
 function addCard5() {
   riddle.classList.remove('is-hidden')
+  localStorage.setItem("card5", 'not-hidden')
 }
 function addCard6() {
   randomFact.classList.remove('is-hidden')
+  localStorage.setItem("card6", 'not-hidden')
 }
 function addCard7() {
   nbaScoresCard.classList.remove('is-hidden')
+  localStorage.setItem("card7", 'not-hidden')
 }
 function addCard8() {
   randomDog.classList.remove('is-hidden')
+  localStorage.setItem("card8", 'not-hidden')
 }
+
+function showCard1() {
+  if (localStorage.getItem('card1') == 'not-hidden') {
+    addCard1()
+  } else {
+    weather.classList.add('is-hidden');
+  }
+}
+
+function showCard2() {
+  if (localStorage.getItem('card2') == 'not-hidden') {
+    addCard2()
+  } else {
+    newsCard.classList.add('is-hidden');;
+  }
+}
+
+function showCard3() {
+  if (localStorage.getItem('card3') == 'not-hidden') {
+    addCard3()
+  } else {
+    ronQuote.classList.add('is-hidden');;
+  }
+}
+
+function showCard4() {
+  if (localStorage.getItem('card4') == 'not-hidden') {
+    addCard4()
+  } else {
+    harryPotterQuote.classList.add('is-hidden');
+  }
+}
+
+function showCard5() {
+  if (localStorage.getItem('card5') == 'not-hidden') {
+    addCard5()
+  } else {
+    riddle.classList.add('is-hidden');
+  }
+}
+
+function showCard6() {
+  if (localStorage.getItem('card6') == 'not-hidden') {
+    addCard6()
+  } else {
+    randomFact.classList.add('is-hidden');
+  }
+}
+
+function showCard7() {
+  if (localStorage.getItem('card7') == 'not-hidden') {
+    addCard7()
+  } else {
+    nbaScoresCard.classList.add('is-hidden');
+  }
+}
+
+function showCard8() {
+  if (localStorage.getItem('card8') == 'not-hidden') {
+    addCard8()
+  } else {
+    randomDog.classList.add('is-hidden');
+  }
+}
+
+showCard1()
+showCard2()
+showCard3()
+showCard4()
+showCard5()
+showCard6()
+showCard7()
+
+
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
 
@@ -185,7 +275,6 @@ function displayTime() {
 setInterval(displayTime, 1000);
 
 // WEATHER API
-const cities = ['Irvine','Sacramento'];
 
 function getWeather(city) {
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=9ee9271b9afcecf4a8ec627a8439aa7b&units=imperial")
@@ -193,27 +282,20 @@ function getWeather(city) {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
-            console.log(data.name);
-            console.log(data.weather[0].description);
-            console.log(data.main.temp);
-            console.log(data.main.temp_min);
-            console.log(data.main.temp_max);
+            // console.log(data);
+            // console.log(data.name);
+            // console.log(data.weather[0].description);
+            // console.log(data.main.temp);
+            // console.log(data.main.temp_min);
+            // console.log(data.main.temp_max);
             const createElement = document.createElement('p');
             createElement.innerHTML = '<strong><br>City Name: </strong>' + city + '<strong><br>Current Weather: </strong>' + data.weather[0].main + '<strong><br>The temperature is: </strong> ' + data.main.temp + '<strong><br>Min Temp: </strong>' + data.main.temp_min + '<strong><br>Max Temp: </strong>' + data.main.temp_max;
             weatherResults.append(createElement);
         });
 
 }
-function getWeatherForCities() {
-  cities.forEach(city => {
-      getWeather(city);
-  });
-}
 
-getWeatherForCities();
-
-// weatherSearch.addEventListener('click', searchForCity)
+weatherSearch.addEventListener('click', searchForCity)
 
 function searchForCity(event){
     event.preventDefault();
@@ -233,31 +315,6 @@ function loadPastWeather() {
 loadPastWeather()
 
 
-// riddle API
-function riddleCard() {
-  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
-  fetch('https://api.api-ninjas.com/v1/riddles', {
-    headers: {
-      'X-Api-Key': apiKey,
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log(data)
-      console.log(data[0].title)
-      console.log(data[0].question)
-      console.log(data[0].answer)
-      const createElement = document.createElement('p')
-      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
-      riddle.append(createElement)
-    })
-
-
-}
-riddleCard();
-
-
 //Ron Swanson quote API
 function ronSwanson() {
   fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
@@ -265,7 +322,7 @@ function ronSwanson() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       const createElement = document.createElement('p');
       createElement.textContent = `"` + data + `"`;
       ronQuote.append(createElement);
@@ -285,10 +342,10 @@ function riddleCard() {
     .then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log(data)
-      console.log(data[0].title)
-      console.log(data[0].question)
-      console.log(data[0].answer)
+      // console.log(data)
+      // console.log(data[0].title)
+      // console.log(data[0].question)
+      // console.log(data[0].answer)
       const createElement = document.createElement('p')
       createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
       riddle.append(createElement)
@@ -307,7 +364,7 @@ function randomDogCard() {
     return response.json();
   })
   .then(function(data) {
-    console.log(data);
+    // console.log(data);
     const imageElement = document.createElement('img');
     imageElement.src = data.message;
     imageContainer.appendChild(imageElement);
@@ -325,7 +382,7 @@ function harryPotter() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       const createElement = document.createElement('p');
       createElement.innerHTML = data.quote + '<strong><br> - </strong>' + data.speaker + '<strong><br>Movie: </strong>' + data.story;
       harryPotterQuote.append(createElement);
@@ -341,7 +398,7 @@ function randomFactCard() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.text);
+      // console.log(data.text);
       const createElement = document.createElement('p');
       createElement.textContent = [data.text];
       randomFact.append(createElement);
@@ -361,6 +418,76 @@ function setBookmark(website) {
   createNewSection.append(createAElement);
   workspace.append(createNewSection);
 }
+
+
+
+// SPORTS API
+const myHeaders = new Headers();
+myHeaders.append("x-rapidapi-key", "2eb6e48453a25b9ed67a39562fe656a3");
+myHeaders.append("x-rapidapi-host", "v1.basketball.api-sports.io");
+
+const requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+//TODO: maybe ask for user input and display prior three scores from favorite team?
+function getSports(date) {
+  fetch("https://v1.basketball.api-sports.io/games?league=12&season=2023-2024&date=" + date, requestOptions)
+  .then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    //TODO: need to create a for loop for this lol
+    const createNewSection0 = document.createElement('section')
+    const createAwayTeam0 = document.createElement('h4')
+    const createAwayScore0 = document.createElement('p')
+    const createHomeTeam0 = document.createElement('h4')
+    const createHomeScore0 = document.createElement('p')
+    createNewSection0.classList.add('miniCards')
+    createAwayTeam0.textContent = data.response[0].teams.away.name
+    createAwayScore0.textContent = data.response[0].scores.away.total
+    createNewSection0.append(createAwayTeam0)
+    createNewSection0.append(createAwayScore0)
+    createHomeTeam0.textContent = data.response[0].teams.home.name
+    createHomeScore0.textContent = data.response[0].scores.home.total
+    createNewSection0.append(createHomeTeam0)
+    createNewSection0.append(createHomeScore0)
+    nbaScores.append(createNewSection0)
+    //seriously...
+    const createNewSection1 = document.createElement('section')
+    const createAwayTeam1 = document.createElement('h4')
+    const createAwayScore1 = document.createElement('p')
+    const createHomeTeam1 = document.createElement('h4')
+    const createHomeScore1 = document.createElement('p')
+    createNewSection1.classList.add('miniCards')
+    createAwayTeam1.textContent = data.response[1].teams.away.name
+    createAwayScore1.textContent = data.response[1].scores.away.total
+    createNewSection1.append(createAwayTeam1)
+    createNewSection1.append(createAwayScore1)
+    createHomeTeam1.textContent = data.response[1].teams.home.name
+    createHomeScore1.textContent = data.response[1].scores.home.total
+    createNewSection1.append(createHomeTeam1)
+    createNewSection1.append(createHomeScore1)
+    nbaScores.append(createNewSection1)
+    //this is ridiculous...
+    const createNewSection2 = document.createElement('section')
+    const createAwayTeam2 = document.createElement('h4')
+    const createAwayScore2 = document.createElement('p')
+    const createHomeTeam2 = document.createElement('h4')
+    const createHomeScore2 = document.createElement('p')
+    createNewSection2.classList.add('miniCards')
+    createAwayTeam2.textContent = data.response[2].teams.away.name
+    createAwayScore2.textContent = data.response[2].scores.away.total
+    createNewSection2.append(createAwayTeam2)
+    createNewSection2.append(createAwayScore2)
+    createHomeTeam2.textContent = data.response[2].teams.home.name
+    createHomeScore2.textContent = data.response[2].scores.home.total
+    createNewSection2.append(createHomeTeam2)
+    createNewSection2.append(createHomeScore2)
+    nbaScores.append(createNewSection2)
+  })
+}
+getSports(yesterday)
 
 // news API
 
@@ -432,65 +559,14 @@ if (query.trim() !== "") {
 }
 });
 
-
-
-//TODO: maybe ask for user input and display prior three scores from favorite team?
-function getSports(date) {
-  fetch("https://v1.basketball.api-sports.io/games?league=12&season=2023-2024&date=" + date, requestOptions)
-    .then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      //TODO: need to create a for loop for this lol
-      const createNewSection0 = document.createElement('section')
-      const createAwayTeam0 = document.createElement('h4')
-      const createAwayScore0 = document.createElement('p')
-      const createHomeTeam0 = document.createElement('h4')
-      const createHomeScore0 = document.createElement('p')
-      createNewSection0.classList.add('miniCards')
-      createAwayTeam0.textContent = data.response[0].teams.away.name
-      createAwayScore0.textContent = data.response[0].scores.away.total
-      createNewSection0.append(createAwayTeam0)
-      createNewSection0.append(createAwayScore0)
-      createHomeTeam0.textContent = data.response[0].teams.home.name
-      createHomeScore0.textContent = data.response[0].scores.home.total
-      createNewSection0.append(createHomeTeam0)
-      createNewSection0.append(createHomeScore0)
-      nbaScores.append(createNewSection0)
-      //seriously...
-      const createNewSection1 = document.createElement('section')
-      const createAwayTeam1 = document.createElement('h4')
-      const createAwayScore1 = document.createElement('p')
-      const createHomeTeam1 = document.createElement('h4')
-      const createHomeScore1 = document.createElement('p')
-      createNewSection1.classList.add('miniCards')
-      createAwayTeam1.textContent = data.response[1].teams.away.name
-      createAwayScore1.textContent = data.response[1].scores.away.total
-      createNewSection1.append(createAwayTeam1)
-      createNewSection1.append(createAwayScore1)
-      createHomeTeam1.textContent = data.response[1].teams.home.name
-      createHomeScore1.textContent = data.response[1].scores.home.total
-      createNewSection1.append(createHomeTeam1)
-      createNewSection1.append(createHomeScore1)
-      nbaScores.append(createNewSection1)
-      //this is ridiculous...
-      const createNewSection2 = document.createElement('section')
-      const createAwayTeam2 = document.createElement('h4')
-      const createAwayScore2 = document.createElement('p')
-      const createHomeTeam2 = document.createElement('h4')
-      const createHomeScore2 = document.createElement('p')
-      createNewSection2.classList.add('miniCards')
-      createAwayTeam2.textContent = data.response[2].teams.away.name
-      createAwayScore2.textContent = data.response[2].scores.away.total
-      createNewSection2.append(createAwayTeam2)
-      createNewSection2.append(createAwayScore2)
-      createHomeTeam2.textContent = data.response[2].teams.home.name
-      createHomeScore2.textContent = data.response[2].scores.home.total
-      createNewSection2.append(createHomeTeam2)
-      createNewSection2.append(createHomeScore2)
-      nbaScores.append(createNewSection2)
-    })
+function loadNews(){
+  const oldNews = localStorage.getItem('news')
+    if (oldNews){
+      fetchNews(oldNews)
 }
-getSports(yesterday)
+}
+
+loadNews()
 
 // Dropdown menu function
 function myFunction() {
@@ -510,7 +586,7 @@ function myFunction() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded and parsed')
+  // console.log('DOM fully loaded and parsed')
   const cards = document.querySelectorAll('.card');
   cards.forEach(function(card) {
       card.classList.add('is-hidden');

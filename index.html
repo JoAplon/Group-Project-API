@@ -31,7 +31,7 @@
           <button class="w3-bar-item w3-button" id="randomSelect">Random Facts</button>
           <button class="w3-bar-item w3-button" id="nbaSelect">NBA Scores</button>
           <button class="w3-bar-item w3-button" id="dogSelect">Dog Pictures!</a>
-          <button class="w3-bar-item w3-button">Card 9</a>
+          <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
           
         </div>
       </div>
@@ -46,6 +46,9 @@
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="weather">
             <button onclick="openModal1()">Close Window</button>
             <h3 class="card-header">Weather</h3>
+            <input type="text" id="weatherInput" placeholder="Enter City">
+            <button id="weatherSearch">Search</button>
+            <div id="weatherResults"></div>
           </section>
         </div>
         <div class="w3-container draggable-card" draggable="true" id="dragcard2">
@@ -53,7 +56,7 @@
             <button onclick="openModal2()">Close Window</button>
             <h3 class="card-header">Daily News</h3>
             <!-- Add an input field for user to enter their query -->
-            <input type="text" id="query-input" placeholder="Enter News of Intereset">
+            <input type="text" id="query-input" placeholder="Enter News of Interest">
             <!-- Add a button to trigger the search -->
             <button id="search-btn">Search</button>
             <!-- Container to display news -->
