@@ -20,6 +20,12 @@ header, footer {
     color: #FFF; /* White text for better contrast */
 }
 
+#googleSearch{
+    /* float: right; */
+    display: flex;
+    justify-content: end;
+}
+
 .menu-btn {
     position: relative; /* Sticks the button to a specific position regardless of scrolling */
     top: 15px; /* Aligns the button to the top */
