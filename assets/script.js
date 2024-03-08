@@ -15,27 +15,108 @@ const riddle = document.getElementById('riddle')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
-const confirmModal = document.getElementById('confirmButton')
-const cancelModal = document.getElementById('cancelButton')
-const basketballCard = document.getElementById('dragcard7')
+const newsCard = document.getElementById('news')
+const nbaScoresCard = document.getElementById('nbaScoresCard')
 
-cancelModal.addEventListener ('click', closeModal)
-confirmModal.addEventListener('click', closeCard)
+    // Function to open the modal
+    function openModal1() {
+      document.getElementById("myModal1").style.display = "block";
+  }
+    function openModal2() {
+      document.getElementById("myModal2").style.display = "block";
+  }
+    function openModal3() {
+      document.getElementById("myModal3").style.display = "block";
+  }
+    function openModal4() {
+      document.getElementById("myModal4").style.display = "block";
+  }
+    function openModal5() {
+      document.getElementById("myModal5").style.display = "block";
+  }
+    function openModal6() {
+      document.getElementById("myModal6").style.display = "block";
+  }
+    function openModal7() {
+      document.getElementById("myModal7").style.display = "block";
+  }
+  
+  // function to close the modal
+    function closeModal1() {
+      document.getElementById("myModal1").style.display = "none";
+  }
+    function closeModal2() {
+      document.getElementById("myModal2").style.display = "none";
+  }
+    function closeModal3() {
+      document.getElementById("myModal3").style.display = "none";
+  }
+    function closeModal4() {
+      document.getElementById("myModal4").style.display = "none";
+  }
+    function closeModal5() {
+      document.getElementById("myModal5").style.display = "none";
+  }
+    function closeModal6() {
+      document.getElementById("myModal6").style.display = "none";
+  }
+    function closeModal7() {
+      document.getElementById("myModal7").style.display = "none";
+  }
+  
+  // event listeners for confirmation
+confirmBtn1.addEventListener("click", function() {
+  weather.classList.add('is-hidden');
+  closeModal1();
+});
+confirmBtn2.addEventListener("click", function() {
+  newsCard.classList.add('is-hidden');
+  closeModal2();
+});
+confirmBtn3.addEventListener("click", function() {
+  ronQuote.classList.add('is-hidden');
+  closeModal3();
+});
+confirmBtn4.addEventListener("click", function() {
+  harryPotterQuote.classList.add('is-hidden');
+  closeModal4();
+});
+confirmBtn5.addEventListener("click", function() {
+  riddle.classList.add('is-hidden');
+  closeModal5();
+});
+confirmBtn6.addEventListener("click", function() {
+  randomFact.classList.add('is-hidden');
+  closeModal6();
+});
+confirmBtn7.addEventListener("click", function() {
+  nbaScoresCard.classList.add('is-hidden');
+  closeModal7();
+});
 
-function closeCard(){
-  basketballCard.classList.add('is-hidden')
-  document.getElementById("myModal").style.display = "none"
-}
-
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
-}
-
-// Function to close the modal
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
-
+// event listeners for cancel button
+cancelBtn1.addEventListener("click", function() {
+  closeModal1();
+});
+cancelBtn2.addEventListener("click", function() {
+  closeModal2();
+});
+cancelBtn3.addEventListener("click", function() {
+  closeModal3();
+});
+cancelBtn4.addEventListener("click", function() {
+  closeModal4();
+});
+cancelBtn5.addEventListener("click", function() {
+  closeModal5();
+});
+cancelBtn6.addEventListener("click", function() {
+  closeModal6();
+});
+cancelBtn7.addEventListener("click", function() {
+  closeModal7();
+});
+            
 // Dropdown menu function
 function myFunction() {
   var x = document.getElementById("Demo");
@@ -44,6 +125,36 @@ function myFunction() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+
+document.getElementById('weatherSelect').addEventListener('click', addCard1)
+document.getElementById('newsSelect').addEventListener('click', addCard2)
+document.getElementById('swansonSelect').addEventListener('click', addCard3)
+document.getElementById('potterSelect').addEventListener('click', addCard4)
+document.getElementById('riddleSelect').addEventListener('click', addCard5)
+document.getElementById('randomSelect').addEventListener('click', addCard6)
+document.getElementById('nbaSelect').addEventListener('click', addCard7)
+
+function addCard1() {
+  weather.classList.remove('is-hidden')
+}
+function addCard2() {
+  newsCard.classList.remove('is-hidden')
+}
+function addCard3() {
+  ronQuote.classList.remove('is-hidden')
+}
+function addCard4() {
+  harryPotterQuote.classList.remove('is-hidden')
+}
+function addCard5() {
+  riddle.classList.remove('is-hidden')
+}
+function addCard6() {
+  randomFact.classList.remove('is-hidden')
+}
+function addCard7() {
+  nbaScoresCard.classList.remove('is-hidden')
 }
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
