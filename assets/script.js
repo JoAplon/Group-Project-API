@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
+const randomDog = document.getElementById('dogpicture');
 const today = dayjs();
 
 //variable for yesterdays date
@@ -45,6 +46,7 @@ function displayTime() {
 setInterval(displayTime, 1000);
 
 // WEATHER API
+const cities = ['Irvine','Sacramento'];
 
 function getWeather(city) {
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=9ee9271b9afcecf4a8ec627a8439aa7b&units=imperial")
@@ -53,18 +55,24 @@ function getWeather(city) {
         })
         .then(function(data) {
             console.log(data);
-            console.log(data.weather[0].main);
+            console.log(data.name);
+            console.log(data.weather[0].description);
             console.log(data.main.temp);
-            console.log(data.sys.sunrise);
-            console.log(data.sys.sunset);
+            console.log(data.main.temp_min);
+            console.log(data.main.temp_max);
             const createElement = document.createElement('p');
-            createElement.textContent = city + data.weather[0].main + 'the temperature is ' + data.main.temp + 'sunrise: ' + data.sys.sunrise + 'sunset ' + data.sys.sunset;
+            createElement.innerHTML = '<strong><br>City Name: </strong>' + city + '<strong><br>Current Weather: </strong>' + data.weather[0].main + '<strong><br>The temperature is: </strong> ' + data.main.temp + '<strong><br>Min Temp: </strong>' + data.main.temp_min + '<strong><br>Max Temp: </strong>' + data.main.temp_max;
             weatherResults.append(createElement);
         });
 
 }
+function getWeatherForCities() {
+  cities.forEach(city => {
+      getWeather(city);
+  });
+}
 
-getWeather();
+getWeatherForCities();
 
 weatherSearch.addEventListener('click', searchForCity)
 
@@ -85,6 +93,7 @@ function loadPastWeather() {
 
 loadPastWeather()
 
+
 //Ron Swanson quote API
 function ronSwanson() {
   fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
@@ -101,6 +110,50 @@ function ronSwanson() {
 
 ronSwanson();
 
+// riddle API
+function riddleCard() {
+  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
+  fetch('https://api.api-ninjas.com/v1/riddles', {
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data)
+      console.log(data[0].title)
+      console.log(data[0].question)
+      console.log(data[0].answer)
+      const createElement = document.createElement('p')
+      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
+      riddle.append(createElement)
+    })
+
+
+}
+riddleCard();
+
+// Dog pic API
+const imageContainer = document.getElementById('dogcontainer')
+
+function randomDogCard() {
+  fetch('https://dog.ceo/api/breeds/image/random')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+    const imageElement = document.createElement('img');
+    imageElement.src = data.message;
+    imageContainer.appendChild(imageElement);
+  })
+  .catch(function(error) {
+    console.error('Error fetching dog picture:', error);
+  });
+}
+randomDogCard();
+
 //Harry Potter Quotes API
 function harryPotter() {
   fetch("https://api.portkey.uk/quote")
@@ -110,7 +163,7 @@ function harryPotter() {
     .then(function (data) {
       console.log(data);
       const createElement = document.createElement('p');
-      createElement.textContent = data.quote + data.speaker + data.story;
+      createElement.innerHTML = data.quote + '<strong><br> - </strong>' + data.speaker + '<strong><br>Movie: </strong>' + data.story;
       harryPotterQuote.append(createElement);
     });
 }
@@ -275,36 +328,18 @@ function getSports(date) {
 }
 getSports(yesterday)
 
-// riddle API
-function riddleCard() {
-  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
-  fetch('https://api.api-ninjas.com/v1/riddles', {
-    headers: {
-      'X-Api-Key': apiKey,
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log(data)
-      console.log(data[0].title)
-      console.log(data[0].question)
-      console.log(data[0].answer)
-      const createElement = document.createElement('p')
-      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
-      riddle.append(createElement)
-    })
-
-
-}
-riddleCard();
-
 // Dropdown menu function
 function myFunction() {
-  var x = document.getElementById("Demo");
+  let x = document.getElementById("Demo");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
   } else { 
     x.className = x.className.replace(" w3-show", "");
+
+  }
+  // Toggle the visibility of the selected card
+  let selectedCard = document.getElementById(cardId);
+  if (selectedCard) {
+      selectedCard.classList.toggle("hidden-card");
   }
 }
