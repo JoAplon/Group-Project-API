@@ -1,3 +1,4 @@
+
 * {
     border: 0px;
     margin: 0px;
@@ -16,10 +17,32 @@ body{
     background-color: #F7F5E6;
 }
 
+
 h1{
     font-size:xx-large;
     font-style: oblique;
 }
+
+main {
+    min-height: 90vh;
+}
+
+/* .card {
+    padding: 5px;
+    border: 4px solid rgb(125, 125, 125);
+    border-style:dashed;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} */
+
+/* .draggable-card{
+    position: absolute;
+} */
+
 
 h3{
     font-size:larger;
@@ -42,9 +65,11 @@ h3{
 }
 
 
+
 p{
     padding: 10px;
 }
+
 
 div .columns{
     display: flex;
@@ -70,7 +95,6 @@ button{
     float: left; /* Float the card to the left */
     margin-right: 20px; /* Add some margin to separate from other elements */
   }
-  
   .news-card h3 {
     margin-top: 0;
   }
@@ -82,9 +106,9 @@ button{
     margin-top: 10px;
   }
 
+
   @media screen and (max-width: 992px) {
     header, footer {
       background: #C0B283;
     }
   }
-

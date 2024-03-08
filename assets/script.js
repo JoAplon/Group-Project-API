@@ -1,26 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded and parsed')
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(function(card) {
-      card.classList.add('is-hidden');
-  });
-  function showCard(cardId) {
-    cards.forEach(function(card) {
-        card.classList.add('is-hidden');
-    });
-    // Show the specified card
-    const cardToShow = document.getElementById(cardId);
-    if (cardToShow) {
-        cardToShow.classList.remove('is-hidden');
-    }
-}
-})
+
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
 const randomDog = document.getElementById('dogpicture');
 const today = dayjs();
-
 //variable for yesterdays date
 const todayMinus = dayjs().subtract(1, 'day');
 //use this for sports card
@@ -29,12 +12,164 @@ const date = document.getElementById('date');
 const time = document.getElementById('time');
 const weather = document.getElementById('weather');
 const workspace = document.getElementById('workspace');
-
 const riddle = document.getElementById('riddle')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
+const newsCard = document.getElementById('news')
+const nbaScoresCard = document.getElementById('nbaScoresCard')
 
+    // Function to open the modal
+    function openModal1() {
+      document.getElementById("myModal1").style.display = "block";
+  }
+    function openModal2() {
+      document.getElementById("myModal2").style.display = "block";
+  }
+    function openModal3() {
+      document.getElementById("myModal3").style.display = "block";
+  }
+    function openModal4() {
+      document.getElementById("myModal4").style.display = "block";
+  }
+    function openModal5() {
+      document.getElementById("myModal5").style.display = "block";
+  }
+    function openModal6() {
+      document.getElementById("myModal6").style.display = "block";
+  }
+    function openModal7() {
+      document.getElementById("myModal7").style.display = "block";
+  }
+function openModal8() {
+      document.getElementById("myModal8").style.display = "block";
+  }
+  
+  // function to close the modal
+    function closeModal1() {
+      document.getElementById("myModal1").style.display = "none";
+  }
+    function closeModal2() {
+      document.getElementById("myModal2").style.display = "none";
+  }
+    function closeModal3() {
+      document.getElementById("myModal3").style.display = "none";
+  }
+    function closeModal4() {
+      document.getElementById("myModal4").style.display = "none";
+  }
+    function closeModal5() {
+      document.getElementById("myModal5").style.display = "none";
+  }
+    function closeModal6() {
+      document.getElementById("myModal6").style.display = "none";
+  }
+    function closeModal7() {
+      document.getElementById("myModal7").style.display = "none";
+  }
+    function closeModal8() {
+      document.getElementById("myModal8").style.display = "none";
+  }
+  
+  // event listeners for confirmation
+confirmBtn1.addEventListener("click", function() {
+  weather.classList.add('is-hidden');
+  closeModal1();
+});
+confirmBtn2.addEventListener("click", function() {
+  newsCard.classList.add('is-hidden');
+  closeModal2();
+});
+confirmBtn3.addEventListener("click", function() {
+  ronQuote.classList.add('is-hidden');
+  closeModal3();
+});
+confirmBtn4.addEventListener("click", function() {
+  harryPotterQuote.classList.add('is-hidden');
+  closeModal4();
+});
+confirmBtn5.addEventListener("click", function() {
+  riddle.classList.add('is-hidden');
+  closeModal5();
+});
+confirmBtn6.addEventListener("click", function() {
+  randomFact.classList.add('is-hidden');
+  closeModal6();
+});
+confirmBtn7.addEventListener("click", function() {
+  nbaScoresCard.classList.add('is-hidden');
+  closeModal7();
+});
+confirmBtn8.addEventListener("click", function() {
+  randomDog.classList.add('is-hidden');
+  closeModal8();
+});
+
+// event listeners for cancel button
+cancelBtn1.addEventListener("click", function() {
+  closeModal1();
+});
+cancelBtn2.addEventListener("click", function() {
+  closeModal2();
+});
+cancelBtn3.addEventListener("click", function() {
+  closeModal3();
+});
+cancelBtn4.addEventListener("click", function() {
+  closeModal4();
+});
+cancelBtn5.addEventListener("click", function() {
+  closeModal5();
+});
+cancelBtn6.addEventListener("click", function() {
+  closeModal6();
+});
+cancelBtn7.addEventListener("click", function() {
+  closeModal7();
+});
+cancelBtn8.addEventListener("click", function() {
+  closeModal8();
+});
+            
+// Dropdown menu function
+function myFunction() {
+  var x = document.getElementById("Demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+document.getElementById('weatherSelect').addEventListener('click', addCard1)
+document.getElementById('newsSelect').addEventListener('click', addCard2)
+document.getElementById('swansonSelect').addEventListener('click', addCard3)
+document.getElementById('potterSelect').addEventListener('click', addCard4)
+document.getElementById('riddleSelect').addEventListener('click', addCard5)
+document.getElementById('randomSelect').addEventListener('click', addCard6)
+document.getElementById('nbaSelect').addEventListener('click', addCard7)
+
+function addCard1() {
+  weather.classList.remove('is-hidden')
+}
+function addCard2() {
+  newsCard.classList.remove('is-hidden')
+}
+function addCard3() {
+  ronQuote.classList.remove('is-hidden')
+}
+function addCard4() {
+  harryPotterQuote.classList.remove('is-hidden')
+}
+function addCard5() {
+  riddle.classList.remove('is-hidden')
+}
+function addCard6() {
+  randomFact.classList.remove('is-hidden')
+}
+function addCard7() {
+  nbaScoresCard.classList.remove('is-hidden')
+}
 
 date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
 
@@ -74,7 +209,7 @@ function getWeatherForCities() {
 
 getWeatherForCities();
 
-weatherSearch.addEventListener('click', searchForCity)
+// weatherSearch.addEventListener('click', searchForCity)
 
 function searchForCity(event){
     event.preventDefault();
@@ -92,6 +227,31 @@ function loadPastWeather() {
 }
 
 loadPastWeather()
+
+
+// riddle API
+function riddleCard() {
+  const apiKey = 'e//0Bd/EB6LkCS4euqvh5w==kbmISpXkV7swqkZO'
+  fetch('https://api.api-ninjas.com/v1/riddles', {
+    headers: {
+      'X-Api-Key': apiKey,
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log(data)
+      console.log(data[0].title)
+      console.log(data[0].question)
+      console.log(data[0].answer)
+      const createElement = document.createElement('p')
+      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
+      riddle.append(createElement)
+    })
+
+
+}
+riddleCard();
 
 
 //Ron Swanson quote API
@@ -342,4 +502,23 @@ function myFunction() {
   if (selectedCard) {
       selectedCard.classList.toggle("hidden-card");
   }
+
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded and parsed')
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+      card.classList.add('is-hidden');
+  });
+  function showCard(cardId) {
+    cards.forEach(function(card) {
+        card.classList.add('is-hidden');
+    });
+    // Show the specified card
+    const cardToShow = document.getElementById(cardId);
+    if (cardToShow) {
+        cardToShow.classList.remove('is-hidden');
+    }
+}
+})
