@@ -1,126 +1,159 @@
-
 * {
-    border: 0px;
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't affect the total width or height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern font */
 }
 
-header, 
-footer{
+body {
+    background-color: #F4F1EA; /* Softened background color */
+    color: #333; /* Darker text for better readability */
+    line-height: 1.6; /* Improved line spacing */
+    padding: 20px; /* Avoids content touching the edges */
+}
+
+header, footer {
+    position: relative;
     text-align: center;
-    background-color: #7e9a9a;
-    padding: 20px;
-    color: black;
+    background-color: #6B9080; /* Updated to a more pleasing shade */
+    padding: 20px 0; /* Only vertical padding needed */
+    color: #FFF; /* White text for better contrast */
 }
 
-body{
-    background-color: #F7F5E6;
+.menu-btn {
+    position: fixed; /* Sticks the button to a specific position regardless of scrolling */
+    top: 150px; /* Aligns the button to the top */
+    left: 0; /* Aligns the button to the left */
+    margin: 20px; /* Adds some space from the top and left edges */
+    background-color: #7e9a9a; /* Matches other button styles, adjust as needed */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Indicates clickable items */
+    /* z-index: 20; Ensures the button is above other content */
 }
 
+.w3-dropdown-click {
+    top: 25px;
+    float: left;
+}
 
-h1{
-    font-size:xx-large;
-    font-style: oblique;
+h1 {
+    font-size: 2.5rem; /* More specific size */
+    margin: 20px 0; /* Adds space around the heading */
 }
 
 main {
     min-height: 90vh;
+    padding: 20px;
 }
 
-/* .card {
-    padding: 5px;
-    border: 4px solid rgb(125, 125, 125);
-    border-style:dashed;
-    margin: 10px;
+h3 {
+    font-size: 1.5rem;
+    color: #333; /* Ensures readability */
+    margin: 10px 0; /* Adds vertical spacing */
+    text-decoration: underline;
+}
+
+#ronSwansonImg, #harryPotterImg {
+    max-width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    padding: 10px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+div.columns {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-} */
-
-/* .draggable-card{
-    position: absolute;
-} */
-
-
-h3{
-    font-size:larger;
-    text-shadow: black;
-    display: inline;
-    text-decoration-line: underline;}
-
-#ronSwansonImg {
-    width: 100%;
-    height: 30vh;
-    object-fit: contain;
-    padding: 10px;
+    justify-content: space-between; /* Distributes space evenly */
 }
 
-#harryPotterImg {
-    width: 100%;
-    height: 30vh;
-    object-fit: contain;
-    padding: 10px;
+button {
+    background-color: #7e9a9a; /* Harmonized button color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Indicates clickable items */
 }
 
-
-
-p{
-    padding: 10px;
-}
-
-
-div .columns{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.w3-dropdown-click{
-    float: left;
-}
-
-button{
-    background-color: #C0B283;
-}
-
-
-/* NEWS API CARD */
 .news-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    width: 30%; /* Adjust the width as needed */
-    float: left; /* Float the card to the left */
-    margin-right: 20px; /* Add some margin to separate from other elements */
-  }
-  .news-card h3 {
+    width: calc(33.333% - 20px); /* Three cards per row with spacing */
+    margin-right: 20px;
+}
+
+.news-card:last-child {
+    margin-right: 0; /* Removes margin for the last card */
+}
+
+.news-card h3 {
     margin-top: 0;
-  }
-  
-  .news-card a {
-    display: block;
+}
+
+.news-card a {
     color: #007bff;
     text-decoration: none;
     margin-top: 10px;
-  }
+}
 
-  .modal {
+.modal {
+    position: relative; /* Added for close button positioning */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
-    height: 200px;
-    border: 1px solid black;
+    width: auto; /* Adjusts width based on content */
+    max-width: 90%; /* Ensures it doesn't touch the viewport edges */
+    height: auto; /* Adjusts height based on content */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners for the modal */
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
     z-index: 10;
-    background-color: white;
 }
 
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent; /* Makes the button background transparent */
+    color: #333; /* Button color, adjust as needed */
+    border: none;
+    font-size: 1.2rem; /* Adjust the size of the 'x' symbol */
+    cursor: pointer;
+}
 
-  @media screen and (max-width: 992px) {
-    header, footer {
-      background: #C0B283;
+.close-btn:focus {
+    outline: 2px solid #333; /* Adds an outline to the button when it is focused */
+    outline-offset: 2px; /* Adds a little space between the button and the outline */
+}
+
+@media screen and (max-width: 992px) {
+    .news-card {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
     }
-  }
+}
+
+@media screen and (max-width: 600px) {
+    .columns {
+        flex-direction: column; /* Stacks elements vertically on very small screens */
+    }
+
+    .news-card {
+        width: 100%; /* Full width for small devices */
+        margin-right: 0; /* Resets the margin */
+    }
+
+    header, footer {
+        background-color: #C0B283;
+    }
+}
