@@ -12,12 +12,15 @@ const time = document.getElementById('time');
 const weather = document.getElementById('weather');
 const workspace = document.getElementById('workspace');
 const riddle = document.getElementById('riddle')
+const riddleSection = document.getElementById('riddleQuestion')
+const riddleAnswer = document.getElementById('riddleReveal')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
 const newsCard = document.getElementById('news')
 const nbaScoresCard = document.getElementById('nbaScoresCard')
 const googleButton = document.getElementById('googleButton')
+const riddleButton = document.getElementById('riddleAnswer')
 
 googleButton.addEventListener('click', searchGoogle)
 
@@ -383,13 +386,23 @@ function riddleCard() {
       // console.log(data[0].question)
       // console.log(data[0].answer)
       const createElement = document.createElement('p')
-      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
-      riddle.append(createElement)
+      const createAnswer = document.createElement('p')
+      // createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
+      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong>';
+      riddleSection.append(createElement)
+      createAnswer.innerHTML = '<strong><br>Answer: </strong> ' + data[0].answer;
+      riddleAnswer.classList.add('is-hidden')
+      riddleAnswer.append(createAnswer)
     })
-
 
 }
 riddleCard();
+
+riddleButton.addEventListener('click', showAnswer)
+
+function showAnswer(){
+  riddleAnswer.classList.remove('is-hidden')
+}
 
 // Dog pic API
 const imageContainer = document.getElementById('dogcontainer')
