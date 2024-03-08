@@ -1,4 +1,3 @@
-
 const ronQuote = document.getElementById('ronQuote');
 const harryPotterQuote = document.getElementById('harryPotterQuote');
 const randomFact = document.getElementById('randomFact');
@@ -13,11 +12,26 @@ const time = document.getElementById('time');
 const weather = document.getElementById('weather');
 const workspace = document.getElementById('workspace');
 const riddle = document.getElementById('riddle')
+const riddleSection = document.getElementById('riddleQuestion')
+const riddleAnswer = document.getElementById('riddleReveal')
 const weatherSearch = document.getElementById('weatherSearch')
 const weatherResults = document.getElementById('weatherResults')
 const news = document.getElementById('query')
 const newsCard = document.getElementById('news')
 const nbaScoresCard = document.getElementById('nbaScoresCard')
+const googleButton = document.getElementById('googleButton')
+const riddleButton = document.getElementById('riddleAnswer')
+
+googleButton.addEventListener('click', searchGoogle)
+
+function searchGoogle(){
+  const googleInput = document.getElementById('googleInput').value.trim()
+  if (googleInput !== '') {
+    window.open('https://www.google.com/search?q=' + googleInput, '_blank')
+  } else {
+    alert('please enter a valid search')
+  }
+}
 
     // Function to open the modal
     function openModal1() {
@@ -41,7 +55,7 @@ const nbaScoresCard = document.getElementById('nbaScoresCard')
     function openModal7() {
       document.getElementById("myModal7").style.display = "block";
   }
-function openModal8() {
+    function openModal8() {
       document.getElementById("myModal8").style.display = "block";
   }
   
@@ -75,41 +89,49 @@ function openModal8() {
 confirmBtn1.addEventListener("click", function() {
   weather.classList.add('is-hidden');
   localStorage.setItem('card1', 'hidden')
+  document.getElementById('weatherSelect').classList.remove('is-hidden')
   closeModal1();
 });
 confirmBtn2.addEventListener("click", function() {
   newsCard.classList.add('is-hidden');
   localStorage.setItem('card2', 'hidden')
+  document.getElementById('newsSelect').classList.remove('is-hidden')
   closeModal2();
 });
 confirmBtn3.addEventListener("click", function() {
   ronQuote.classList.add('is-hidden');
   localStorage.setItem('card3', 'hidden')
+  document.getElementById('swansonSelect').classList.remove('is-hidden')
   closeModal3();
 });
 confirmBtn4.addEventListener("click", function() {
   harryPotterQuote.classList.add('is-hidden');
   localStorage.setItem('card4', 'hidden')
+  document.getElementById('potterSelect').classList.remove('is-hidden')
   closeModal4();
 });
 confirmBtn5.addEventListener("click", function() {
   riddle.classList.add('is-hidden');
   localStorage.setItem('card5', 'hidden')
+  document.getElementById('riddleSelect').classList.remove('is-hidden')
   closeModal5();
 });
 confirmBtn6.addEventListener("click", function() {
   randomFact.classList.add('is-hidden');
   localStorage.setItem('card6', 'hidden')
+  document.getElementById('randomSelect').classList.remove('is-hidden')
   closeModal6();
 });
 confirmBtn7.addEventListener("click", function() {
   nbaScoresCard.classList.add('is-hidden');
   localStorage.setItem('card7', 'hidden')
+  document.getElementById('nbaSelect').classList.remove('is-hidden')
   closeModal7();
 });
 confirmBtn8.addEventListener("click", function() {
   randomDog.classList.add('is-hidden');
   localStorage.setItem('card8', 'hidden')
+  document.getElementById('dogSelect').classList.remove('is-hidden')
   closeModal8();
 });
 
@@ -138,10 +160,11 @@ cancelBtn7.addEventListener("click", function() {
 cancelBtn8.addEventListener("click", function() {
   closeModal8();
 });
-            
+
+const x = document.getElementById("Demo");
+
 // Dropdown menu function
 function myFunction() {
-  var x = document.getElementById("Demo");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
   } else { 
@@ -161,34 +184,50 @@ document.getElementById('dogSelect').addEventListener('click', addCard8)
 function addCard1() {
   weather.classList.remove('is-hidden')
   localStorage.setItem("card1", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('weatherSelect').classList.add('is-hidden')
 }
 function addCard2() {
   newsCard.classList.remove('is-hidden')
   localStorage.setItem("card2", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('newsSelect').classList.add('is-hidden')
 }
 function addCard3() {
   ronQuote.classList.remove('is-hidden')
   localStorage.setItem("card3", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('swansonSelect').classList.add('is-hidden')
 }
 function addCard4() {
   harryPotterQuote.classList.remove('is-hidden')
   localStorage.setItem("card4", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('potterSelect').classList.add('is-hidden')
 }
 function addCard5() {
   riddle.classList.remove('is-hidden')
   localStorage.setItem("card5", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('riddleSelect').classList.add('is-hidden')
 }
 function addCard6() {
   randomFact.classList.remove('is-hidden')
   localStorage.setItem("card6", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('randomSelect').classList.add('is-hidden')
 }
 function addCard7() {
   nbaScoresCard.classList.remove('is-hidden')
   localStorage.setItem("card7", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('nbaSelect').classList.add('is-hidden')
 }
 function addCard8() {
   randomDog.classList.remove('is-hidden')
   localStorage.setItem("card8", 'not-hidden')
+  x.className = x.className.replace(" w3-show", "")
+  document.getElementById('dogSelect').classList.add('is-hidden')
 }
 
 function showCard1() {
@@ -347,13 +386,23 @@ function riddleCard() {
       // console.log(data[0].question)
       // console.log(data[0].answer)
       const createElement = document.createElement('p')
-      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
-      riddle.append(createElement)
+      const createAnswer = document.createElement('p')
+      // createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong><br>Answer: </strong> ' + data[0].answer;
+      createElement.innerHTML = '<strong>Title: </strong> ' + data[0].title + '<strong><br>Question: </strong>' + data[0].question + '<strong>';
+      riddleSection.append(createElement)
+      createAnswer.innerHTML = '<strong><br>Answer: </strong> ' + data[0].answer;
+      riddleAnswer.classList.add('is-hidden')
+      riddleAnswer.append(createAnswer)
     })
-
 
 }
 riddleCard();
+
+riddleButton.addEventListener('click', showAnswer)
+
+function showAnswer(){
+  riddleAnswer.classList.remove('is-hidden')
+}
 
 // Dog pic API
 const imageContainer = document.getElementById('dogcontainer')

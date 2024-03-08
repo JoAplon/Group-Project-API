@@ -21,7 +21,7 @@
     <div class="w3-container">
       <div class="w3-dropdown-click">
 
-        <button onclick="myFunction()" class="w3-button w3-">Menu</button>
+        <button class="w3-button w3- menu-btn" onclick="myFunction()">Menu</button>
         <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
           <button class="w3-bar-item w3-button" id="weatherSelect">Weather</button>
           <button class="w3-bar-item w3-button" id="newsSelect">Daily News</button>
@@ -31,10 +31,14 @@
           <button class="w3-bar-item w3-button" id="randomSelect">Random Facts</button>
           <button class="w3-bar-item w3-button" id="nbaSelect">NBA Scores</button>
           <button class="w3-bar-item w3-button" id="dogSelect">Dog Pictures!</a>
-          <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
-          
+            <!-- <button class="w3-bar-item w3-button">Card 9</a> -->
+
         </div>
       </div>
+    </div>
+    <div id="googleSearch">
+      <input id="googleInput" type="text" placeholder="Search Google">
+      <button id="googleButton">Go!</button>
     </div>
 
   </header>
@@ -44,7 +48,7 @@
       <div class="column" id="dropcolumn">
         <div class="w3-container draggable-card" draggable="true" id="dragcard1">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="weather">
-            <button onclick="openModal1()">Close Window</button>
+            <button class="close-btn" onclick="openModal1()">X</button>
             <h3 class="card-header">Weather</h3>
             <input type="text" id="weatherInput" placeholder="Enter City">
             <button id="weatherSearch">Search</button>
@@ -53,7 +57,7 @@
         </div>
         <div class="w3-container draggable-card" draggable="true" id="dragcard2">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="news">
-            <button onclick="openModal2()">Close Window</button>
+            <button class="close-btn" onclick="openModal2()">X</button>
             <h3 class="card-header">Daily News</h3>
             <!-- Add an input field for user to enter their query -->
             <input type="text" id="query-input" placeholder="Enter News of Interest">
@@ -68,14 +72,14 @@
       <div class="column" id="dropcolumn">
         <div class="w3-container draggable-card" draggable="true" id="dragcard3">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="ronQuote">
-            <button onclick="openModal3()">Close Window</button>
+            <button class="close-btn" onclick="openModal3()">X</button>
             <h3 class="card-header">Ron Swanson Once Said:</h3>
             <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
           </section>
         </div>
         <div class="w3-container draggable-card" draggable="true" id="dragcard4">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="harryPotterQuote">
-            <button onclick="openModal4()">Close Window</button>
+            <button class="close-btn" onclick="openModal4()">X</button>
             <h3 class="card-header">Harry Potter Random Quote</h3>
             <img src="./assets/_98524780_8da854f5-071b-438d-8888-28a5b23d1304.jpg.webp"
               alt="Deathly Hallows Symbol from Harry Potter" id="harryPotterImg">
@@ -85,15 +89,18 @@
       <div class="column" id="dropcolumn">
         <div class="w3-container draggable-card" draggable="true" id="dragcard5">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="riddle">
-            <button onclick="openModal5()">Close Window</button>
+            <button class="close-btn" onclick="openModal5()">X</button>
             <h3 class="card-header"> Riddle of the Day!</h3><br>
-            <p></p>
+            <div id="riddleQuestion"></div>
+            <button id="riddleAnswer">What's the Answer?</button>
+            <div id="riddleReveal"></div>
+
           </section>
         </div>
         <!-- W3 Random Fact Card -->
         <div class=" w3-container draggable-card" draggable="true" id="dragcard6">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="randomFact">
-            <button onclick="openModal6()">Close Window</button>
+            <button class="close-btn" onclick="openModal6()">X</button>
             <h3 class="card-header">Random Facts</h3>
             <!-- <img src="https://th.bing.com/th/id/R.f6ca97eeeff466bb091193349ad83455?rik=LVk0GPlIZTb6Jg&riu=http%3a%2f%2fimages.lights.com%2flatest%2f36684%2fzoom%2f220.jpg&ehk=Ayn3%2fUd%2fLz4Rr7CxgnNAljmawEGnRLU5gcSlA%2f4e6o8%3d&risl=&pid=ImgRaw&r=0" alt="Light Bulb" style="width:100%"> -->
             <!-- <p id="lightbulbEmoji">💡</p> -->
@@ -102,21 +109,21 @@
         <!-- W3 NBA card -->
         <div class="w3-container draggable-card" draggable="true" id="dragcard7">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="nbaScoresCard">
-            <button onclick="openModal7()">Close Window</button>
+            <button class="close-btn" onclick="openModal7()">X</button>
             <h3 class="card-header">🏀 NBA Scores 🏀</h3>
             <div id="nbaScores"></div>
           </section>
         </div>
         <div class="w3-container draggable-card" draggable="true" id="dragcard8">
-        <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
-          <button onclick="openModal8()">Close Window</button>
-          <h3>Dog Pictures!</h3>
-          <p id="dogcontainer"></p>
-        </section>
-      </div>
+          <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
+            <button onclick="openModal8()">Close Window</button>
+            <h3>Dog Pictures!</h3>
+            <p id="dogcontainer"></p>
+          </section>
+        </div>
       </div>
     </div>
-  
+
     <div id="myModal1" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
@@ -194,7 +201,7 @@
       $(".draggable-card").draggable({
         helper: "original",
 
-        // revert: "invalid",
+        revert: "invalid",
       });
 
       $(".column").droppable({
@@ -202,14 +209,31 @@
         drop: function (event, ui) {
           // Handle the drop event here
           // You can access the dragged card using ui.helper
-          // For example: $(this).append(ui.helper.clone());
-          $(this).append(ui.helper);
+          const card = ui.draggable;
+          const mouseX = event.pageX - $(this).offset().left;
 
+          let insertAt = 0;
+
+          $(this).children('.draggable-card').each(function (index, element) {
+            if (mouseX > $(element).offset().left) {
+              insertAt = index + 1;
+            }
+          });
+          if (insertAt === 0) {
+            $(this).prepend(card);
+          } else {
+            $(this).children('.draggable-card').eq(insertAt - 1).after(card);
+          }
+
+          card.css({ top: 0, left: 0 }); 
         },
       });
-      // Re-enable dragging on the dropped card
-      $('.draggable-card').on('click', function () {
-        $(this).draggable('enable');
+
+      $(".header").droppable({
+        accept: ".draggable-card",
+        drop: function (event, ui) {
+          ui.draggable.remove();
+        },
       });
     });
   </script>
