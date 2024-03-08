@@ -20,6 +20,7 @@
     <h2 id="time"></h2>
     <div class="w3-container">
       <div class="w3-dropdown-click">
+
         <button onclick="myFunction()" class="w3-button w3-">Menu</button>
         <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
           <button class="w3-bar-item w3-button" id="weatherSelect">Weather</button>
@@ -29,6 +30,9 @@
           <button class="w3-bar-item w3-button" id="riddleSelect">Riddle of the day!</button>
           <button class="w3-bar-item w3-button" id="randomSelect">Random Facts</button>
           <button class="w3-bar-item w3-button" id="nbaSelect">NBA Scores</button>
+          <button class="w3-bar-item w3-button" id="dogpicture">Dog Pictures!</a>
+          <button class="w3-bar-item w3-button">Card 9</a>
+          
         </div>
       </div>
     </div>
@@ -62,7 +66,7 @@
         <div class="w3-container draggable-card" draggable="true" id="dragcard3">
           <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="ronQuote">
             <button onclick="openModal3()">Close Window</button>
-            <h3 class="card-header">Ron Swanson Random Quote</h3>
+            <h3 class="card-header">Ron Swanson Once Said:</h3>
             <img src="./assets/MTkwNTc4NDc4NDg3Nzc0MzMz.webp" alt="Ron Swanson" id="ronSwansonImg">
           </section>
         </div>
@@ -100,6 +104,13 @@
             <div id="nbaScores"></div>
           </section>
         </div>
+        <div class="w3-container draggable-card" draggable="true" id="dragcard8">
+        <section class="w3-container w3-center w3-card-4 card-content is-hidden" id="dogpicture">
+          <button onclick="openModal8()">Close Window</button>
+          <h3>Dog Pictures!</h3>
+          <p id="dogcontainer"></p>
+        </section>
+      </div>
       </div>
     </div>
   
@@ -159,10 +170,18 @@
         <button id="cancelBtn7">No</button>
       </div>
     </div>
+    <div id="myModal8" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Are you sure you want to close Dog Pictures?</p>
+        <button id="confirmBtn8">Yes</button>
+        <button id="cancelBtn8">No</button>
+      </div>
+    </div>
   </main>
   <footer>
     <h1>♡ Have A Great Day! ♡</h1>
-    <h2>created by Jordan Aplon, Jason Dang, & Andrew Yang</h2>
+    <h2>Created By: Jordan Aplon, Jason Dang, & Andrew Yang</h2>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -171,7 +190,8 @@
     $(document).ready(function () {
       $(".draggable-card").draggable({
         helper: "original",
-        revert: "invalid",
+
+        // revert: "invalid",
       });
 
       $(".column").droppable({
@@ -180,7 +200,6 @@
           // Handle the drop event here
           // You can access the dragged card using ui.helper
           // For example: $(this).append(ui.helper.clone());
-          // const draggedCard = ui.helper.original();
           $(this).append(ui.helper);
 
         },
