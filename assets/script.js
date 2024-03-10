@@ -22,6 +22,9 @@ const nbaScoresCard = document.getElementById('nbaScoresCard')
 const googleButton = document.getElementById('googleButton')
 const riddleButton = document.getElementById('riddleAnswer')
 
+//need to store style position left, top for each card into local storage. add function to recall on page load.
+
+
 googleButton.addEventListener('click', searchGoogle)
 
 function searchGoogle(){
@@ -58,6 +61,7 @@ function searchGoogle(){
     function openModal8() {
       document.getElementById("myModal8").style.display = "block";
   }
+    
   
   // function to close the modal
     function closeModal1() {
@@ -301,6 +305,7 @@ showCard4()
 showCard5()
 showCard6()
 showCard7()
+showCard8()
 
 
 
@@ -308,7 +313,7 @@ date.textContent = 'Today is ' + today.format('MMMM D, YYYY');
 
 function displayTime() {
   const currentTime = dayjs().format(' hh:mm:ss a');
-  time.textContent = 'The Time is ' + currentTime;
+  time.textContent = currentTime;
 }
 
 setInterval(displayTime, 1000);
@@ -651,3 +656,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 })
+
