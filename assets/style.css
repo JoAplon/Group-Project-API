@@ -2,11 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --white: #FFF; 
+    --mainColor: #F4F1EA;
+    --secondaryColor: #6B9080;
+    --accent-color: #7e9a9a;
+    --mainColor2: #FFE7C1;
+    --secondaryColor2: #DC84F3;
+    --accentColor2: #F3CCF3;
+
 }
 
 body {
-    background-color: #F4F1EA; 
+    background-color: var(--mainColor); 
     color: #333; 
     line-height: 1.6; 
     padding: 20px;
@@ -15,23 +26,28 @@ body {
 header, footer {
     position: relative;
     text-align: center;
-    background-color: #6B9080; 
     padding: 20px 0;
-    color: #FFF;
+    color: var(--white);
+    border-radius: 5px;
 }
 
-#googleSearch{
-    /* float: right; */
+header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: end;
+    background: linear-gradient(180deg, var(--secondaryColor), #ccc);
+}
+
+#headerCenter {
+    margin-left: 230px;
+}
+
+footer {
+    background-color: var(--accent-color);
 }
 
 .menu-btn {
-    position: relative; /* Sticks the button to a specific position regardless of scrolling */
-    top: 15px; /* Aligns the button to the top */
-    left: 0; /* Aligns the button to the left */
-    margin: 20px; /* Adds some space from the top and left edges */
-    background-color: #7e9a9a; /* Matches other button styles, adjust as needed */
+    background-color: var(--secondaryColor); /* Matches other button styles, adjust as needed */
     color: white; /* Text color */
     border: none;
     padding: 10px 20px;
@@ -40,19 +56,26 @@ header, footer {
     
 }
 
-.w3-dropdown-click {
-    top: 25px;
-    float: left;
+#googleSearch {
+    padding: 0 16px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 20px 0;
+    font-size: 10rem;
+    /* margin: 20px 0; */
+}
+
+#date {
+    font-size: 1.5rem;
+}
+
+#time{
+    font-size: 1.5rem;
 }
 
 main {
     min-height: 90vh;
-    padding: 20px;
+    padding: 20px 0px;
 }
 
 h3 {
@@ -60,6 +83,16 @@ h3 {
     color: #333;
     margin: 10px 0;
     text-decoration: underline;
+}
+
+.w3-container {
+    margin-bottom: 7px;
+
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
 }
 
 #ronSwansonImg, #harryPotterImg {
@@ -79,10 +112,10 @@ div.columns {
 }
 
 button {
-    background-color: #7e9a9a;
+    background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -127,19 +160,31 @@ button {
 }
 
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background-color: transparent; 
     color: #333;
     border: none;
-    font-size: 1.2rem;
     cursor: pointer;
 }
 
 .close-btn:focus {
     outline: 2px solid #333;
     outline-offset: 2px;
+}
+
+#nbaScores {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.miniCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0% 5%;
+    background-color: orange;
 }
 
 @media screen and (max-width: 992px) {
