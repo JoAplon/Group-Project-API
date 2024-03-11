@@ -26,6 +26,30 @@ Our group utilized a number of different APIs including:
 
 https://joaplon.github.io/Group-Project-API/
 
+## User Story
+
+    AS a person who goes on the internet everday
+    I WANT a homepage dashboard
+    SO THAT I can see current information and fun anecdotes
+
+## Acceptance Criteria
+
+    GIVEN a homepage dashboard
+    WHEN I load the page for the first time
+    THEN the page is blank
+    WHEN I select an item from the dropdown menu
+    THEN the page is populated with a card
+    WHEN I close the card
+    THEN I am asked if I want to close the card
+    WHEN I enter my city in the weather card
+    THEN I am presented with weather of my city
+    WHEN I search for a topic in the news card
+    THEN I am presented with news on that topic
+    WHEN I load the sports card
+    THEN I am presented with the three most recent NBA scores
+    WHEN I refresh the page
+    THEN the cards, searches are all saved and kept on the page.
+
 ## Credits
 
 This application was created by Jordan Aplon, Jason Dang, and Andrew Yang--all work is our own.
